@@ -19,7 +19,8 @@
     "express-handlebars": "^5.2.0",
     "express-session": "^1.17.1",
     "mysql2": "^2.2.5",
-    "sequelize": "^6.3.5"
+    "sequelize": "^6.3.5",
+    "tui-calendar": "^1.14.1"
   },
   "devDependencies": {
     "eslint": "^7.12.1",
