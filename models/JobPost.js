@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Project extends Model {}
+class JobPost extends Model { }
 
-Project.init(
+JobPost.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -11,21 +11,37 @@ Project.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
+    title: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    description: {
-      type: DataTypes.STRING,
+    link: {
+      type: DataTypes.TEXT,
     },
     date_created: {
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
-    needed_funding: {
-      type: DataTypes.FLOAT,
+    company_name: {
+      type: DataTypes.STRING,
       allowNull: false,
+    },
+    description: {
+      type: DataTypes.TEXT,
+    },
+    salary_information: {
+      type: DataTypes.INTEGER,
+    },
+    contact_information: {
+      type: DataTypes.TEXT,
+    },
+    application_status: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    additional_comments: {
+      type: DataTypes.TEXT,
     },
     user_id: {
       type: DataTypes.INTEGER,
@@ -44,4 +60,4 @@ Project.init(
   }
 );
 
-module.exports = Project;
+module.exports = JobPost;
