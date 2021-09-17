@@ -301,7 +301,7 @@ section {
 
 .page-container2 {
     background: #f2f2f2;
-    padding-left: 300px;
+    /* padding-left: 300px; */
 }
 
 @media (max-width: 991px) {
@@ -2301,7 +2301,7 @@ section {
 .header-desktop2 {
     height: 75px;
     background: #008080;
-    position: fixed;
+    /* position: fixed; */
     z-index: 1001;
     top: 0;
     right: 0;
