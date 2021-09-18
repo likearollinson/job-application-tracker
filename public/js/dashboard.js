@@ -59,7 +59,7 @@ async function handleAddJob(event) {
 }
 
 async function handleDeleteJob(event) {
-  const id;
+  let id;
 
   // Find data-job-id
   if (event.target.dataset.jobId) {
