@@ -9,7 +9,6 @@ router.post('/', async (req, res) => {
       user_id: req.session.user_id,
       title: req.body.title,
       link: req.body.link,
-      date_created: req.body.date_created,
       company_name: req.body.company_name,
       description: req.body.description,
       salary_information: req.body.salary_information,
