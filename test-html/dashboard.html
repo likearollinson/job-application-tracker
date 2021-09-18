@@ -300,35 +300,42 @@
                             </div>
                                 <!-- Contact Information -->
                             <div class="form-group">
-                                <label for="desc" class=" form-control-label">Contact Information </label>
+                                <label for="contact-info" class=" form-control-label">Contact Information </label>
                                 <input type="text" id="con-info" placeholder="Enter contact information here" class="form-control">
                               <!-- Job URL Link -->
                               <div class="form-group">
-                                <label for="status" class=" form-control-label">Job Link</label>
+                                <label for="url" class=" form-control-label">Job Link</label>
                                 <input type="text" id="url" placeholder="Enter job posting url here" class="form-control">
                             </div>
                             <!-- Salary Information -->
                             <div class="form-group">
-                                <label for="status" class=" form-control-label">Salary</label>
+                                <label for="salary" class=" form-control-label">Salary</label>
                                 <input type="text" id="salary" placeholder="Enter salary here" class="form-control">
                             </div>
                             <!-- Additional Comments -->
                             <div class="form-group">
-                                <label for="status" class=" form-control-label">Additional Comments</label>
+                                <label for="comments" class=" form-control-label">Additional Comments</label>
                                 <input type="text" id="comments" placeholder="Enter any additional comments here" class="form-control">
                             </div>
                             <!-- Application Status -->
                             <div class="form-group">
                                 <label for="status" class=" form-control-label">Application Status</label>
-                                <input type="text" id="app-status" placeholder="Enter application status here" class="form-control">
+                                <select name="select" id="select" class="form-control">
+                                    <option value="0">Not Started Process</option>
+                                    <option value="1">In Progress</option>
+                                    <option value="2">Interviewing</option>
+                                    <option value="3">Final Interview</option>
+                                    <option value="4">Accepted</option>
+                                    <option value="5">Denied</option>
+                                    </select>
                             </div>
                         </div>
                     </div>
             </p>
             </div>
             <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-            <button type="button" class="btn btn-primary">Confirm</button>
+            <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button> -->
+            <button type="button" class="btn btn-primary">Okay</button>
             </div>
         </div>
     </div>
