@@ -1,6 +1,5 @@
 const addJobButtonEl = document.querySelector('#add-job-button');
 
-// Assign new job variables
 const companyInputEl = document.querySelector('#company');
 const positionInputEl = document.querySelector('#vat');
 const locationInputEl = document.querySelector('#street');
@@ -8,28 +7,41 @@ const descriptionInputEl = document.querySelector('#desc');
 const contactInfoInputEl = document.querySelector('#con-info');
 const jobUrlInputEl = document.querySelector('#url');
 const salaryInputEl = document.querySelector('#salary');
-const applicationStatusInputEl = document.querySelector('#app-status');
 const commentsInputEl = document.querySelector('#comments');
+const applicationSelectEl = document.querySelector('#select');
 
 function init() {
   addJobButtonEl.addEventListener('click', handleAddJob);
 }
 
 async function handleAddJob() {
+  const user_id = 1;
+  const title = positionInputEl.value.trim();
+  const link = jobUrlInputEl.value.trim();
+  const company_name = companyInputEl.value.trim();
+  const description = descriptionInputEl.value.trim();
+  const salary_information = salaryInputEl.value.trim();
+  const contact_information = contactInfoInputEl.value.trim();
+  const additional_comments = commentsInputEl.value.trim();
+  const application_status = applicationSelectEl.options[applicationSelectEl.selectedIndex].text;
+  
   // Create job object with user's input
   const newJobBody = {
-    title: positionInputEl.value.trim(),
-    link: jobUrlInputEl.value.trim(),
-    company_name: companyInputEl.value.trim(),
-    description: descriptionInputEl.value.trim(),
-    salary_information: salaryInputEl.value.trim(),
-    contact_information: contactInfoInputEl.value.trim(),
-    application_status: applicationStatusInputEl.value.trim(),
-    additional_comments: commentsInputEl.value.trim(),
+    user_id,
+    title,
+    link,
+    company_name,
+    description,
+    salary_information,
+    contact_information,
+    application_status,
+    additional_comments,
   };
 
+  console.log(newJobBody);
+
   // POST new job
-  const newJobData = await fetch('/api/jobs/', {
+  const newJobData = await fetch('/api/job/', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
