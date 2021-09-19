@@ -22,7 +22,6 @@ function init() {
 async function handleAddJob(event) {
   event.preventDefault();
 
-  const user_id = 1;
   const title = positionInputEl.value.trim();
   const link = jobUrlInputEl.value.trim();
   const company_name = companyInputEl.value.trim();
@@ -30,19 +29,19 @@ async function handleAddJob(event) {
   const salary_information = salaryInputEl.value.trim();
   const contact_information = contactInfoInputEl.value.trim();
   const additional_comments = commentsInputEl.value.trim();
-  const application_status = applicationSelectEl.options[applicationSelectEl.selectedIndex].text;
-  
+  const application_status =
+    applicationSelectEl.options[applicationSelectEl.selectedIndex].text;
+
   // Create job object with user's input
   const newJobBody = {
-    user_id,
     title,
     link,
     company_name,
     description,
     salary_information,
     contact_information,
-    application_status,
     additional_comments,
+    application_status,
   };
 
   // POST new job
@@ -78,9 +77,9 @@ async function handleDeleteJob(event) {
 }
 
 // Job button
-    // Redirect user to job.html
+// Redirect user to job.html
 
 // Calendar button
-    // Redirect user to calendar.html
+// Redirect user to calendar.html
 
 init();
