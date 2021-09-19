@@ -2,6 +2,30 @@ const router = require('express').Router();
 const { JobPost, User } = require('../models');
 const withAuth = require('../utils/auth');
 
+// Render dashboard.handlebars
+router.get('/', async (req, res) => {
+  try {
+    // If a session exists, redirect the request to the homepage
+    if (!req.session.logged_in) {
+      res.redirect('/login');
+      return;
+    }
+
+    // Find all jobs
+    const jobsData = await JobPost.findAll();
+
+    const jobs = jobsData.map((job) => job.get({ plain: true }));
+
+    // Render dashboard.handlebars with jobs data
+    res.render('dashboard', {
+      jobs,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 // Prevent non logged in users from viewing the homepage
 router.get('/jobPost/:id', async (req, res) => {
   try {
@@ -29,21 +53,11 @@ router.get('/jobPost/:id', async (req, res) => {
 router.get('/login', (req, res) => {
   // If a session exists, redirect the request to the homepage
   if (req.session.logged_in) {
-    res.redirect('/dashboard');
+    res.redirect('/');
     return;
   }
 
   res.render('login');
-});
-
-router.get('/dashboard', (req, res) => {
-  // If a session exists, redirect the request to the homepage
-  if (!req.session.logged_in) {
-    res.redirect('/login');
-    return;
-  }
-
-  res.render('dashboard');
 });
 
 module.exports = router;

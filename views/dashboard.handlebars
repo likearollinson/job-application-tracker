@@ -58,79 +58,9 @@
           </tr>
         </thead>
         <tbody>
-          <!--Table Row Example-->
-          <tr class="tr-shadow">
-            <!--Position-->
-            <td>Front-End Web Developer</td>
-            <!--Company Name-->
-            <td>Google Dev Team</td>
-            <!--Date Added-->
-            <td>2018-09-27 02:12</td>
-            <!--Status-->
-            <td>
-              <span class="badge badge-pill badge-warning">Interviewing</span>
-            </td>
-            <!--Location-->
-            <td>Raleigh</td>
-            <!--Icons-->
-            <td>
-              <div class="table-data-feature">
-                <!--Open-->
-                <!--
-<button class="item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Open">
-<i class="zmdi zmdi-mail-send"></i>
-</button>
--->
-                <!--Edit-->
-                <button class="item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit">
-                  <i class="zmdi zmdi-edit"></i>
-                </button>
-                <!--Delete-->
-                <button class="item delete-job-button" data-job-id="1" data-toggle="tooltip" data-placement="top"
-                  title="" data-original-title="Delete">
-                  <i class="zmdi zmdi-delete"></i>
-                </button>
-                <!--More Info-->
-                <button class="item btn btn-secondary mb-1" type="button" data-toggle="modal" data-placement="top"
-                  title="" data-original-title="More" data-target="#jobInfo">
-                  <i class="zmdi zmdi-more"></i>
-                </button>
-              </div>
-            </td>
-          </tr>
-          <tr class="spacer"></tr>
-
-
-          <tr class="tr-shadow">
-
-            <td>SASS Server Dev.</td>
-
-            <td>LinkedIn</td>
-            <td>2018-09-24 19:10</td>
-            <td>
-              <span class="badge badge-pill badge-danger"> Denied </span>
-            </td>
-            <td>Remote</td>
-            <td>
-              <div class="table-data-feature">
-                <!--
-<button class="item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Send">
-<i class="zmdi zmdi-mail-send"></i>
-</button>
--->
-                <button class="item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit">
-                  <i class="zmdi zmdi-edit"></i>
-                </button>
-                <button class="item delete-job-button" data-job-id="2" data-toggle="tooltip" data-placement="top"
-                  title="" data-original-title="Delete">
-                  <i class="zmdi zmdi-delete"></i>
-                </button>
-                <button class="item" data-toggle="tooltip" data-placement="top" title="" data-original-title="More">
-                  <i class="zmdi zmdi-more"></i>
-                </button>
-              </div>
-            </td>
-          </tr>
+          {{#each jobs as |job|}}
+          {{> job-card}}
+          {{/each}}
         </tbody>
       </table>
     </div>
@@ -308,3 +238,5 @@
     </div>
   </div>
 </div>
+
+<script src="./js/dashboard.js"></script>

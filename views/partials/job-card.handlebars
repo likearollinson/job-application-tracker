@@ -1,0 +1,32 @@
+<tr class="tr-shadow">
+    <!--Position-->
+    <td>{{title}}</td>
+    <!--Company Name-->
+    <td>{{company_name}}</td>
+    <!--Date Added-->
+    <td>{{date_created}}</td>
+    <!--Status-->
+    <td>
+        <span class="badge badge-pill badge-warning">{{application_status}}</span>
+    </td>
+    <!--Location-->
+    <td>HARDCODED</td>
+    <!--Icons-->
+    <td>
+        <div class="table-data-feature">
+            <!--Edit-->
+            <button class="item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit">
+                <i class="zmdi zmdi-edit"></i>
+            </button>
+            <!--Delete-->
+            <button class="item delete-job-button" data-job-id="{{id}}" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete">
+                <i class="zmdi zmdi-delete"></i>
+            </button>
+            <!--More Info-->
+            <button class="item btn btn-secondary mb-1" type="button" data-toggle="modal" data-placement="top" title="" data-original-title="More" data-target="#jobInfo">
+                <i class="zmdi zmdi-more"></i>
+            </button>
+        </div>
+    </td>
+</tr>
+<tr class="spacer"></tr>
