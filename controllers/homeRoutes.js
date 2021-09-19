@@ -29,11 +29,21 @@ router.get('/jobPost/:id', async (req, res) => {
 router.get('/login', (req, res) => {
   // If a session exists, redirect the request to the homepage
   if (req.session.logged_in) {
-    res.redirect('/');
+    res.redirect('/dashboard');
     return;
   }
 
   res.render('login');
+});
+
+router.get('/dashboard', (req, res) => {
+  // If a session exists, redirect the request to the homepage
+  if (!req.session.logged_in) {
+    res.redirect('/login');
+    return;
+  }
+
+  res.render('dashboard');
 });
 
 module.exports = router;

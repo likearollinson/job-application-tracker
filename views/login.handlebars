@@ -1,41 +1,59 @@
-<div class="row">
-  <div class="col-md-6">
-    <h2>Login</h2>
-
-    <form class="form login-form">
-      <div class="form-group">
-        <label for="email-login">email:</label>
-        <input class="form-input" type="text" id="email-login" />
+<div class="page-wrapper">
+  <div class="page-content--bge5">
+    <div class="container">
+      <div class="login-wrap">
+        <div class="login-content">
+          <h3 style="text-align:center">Returning Users</h3>
+          <div class="login-form">
+            <form action="" method="post">
+              <div class="form-group">
+                <label>Email Address</label>
+                <input class="au-input au-input--full" type="email" name="email" placeholder="Email" id="email-login">
+              </div>
+              <div class="form-group">
+                <label>Password</label>
+                <input class="au-input au-input--full" type="password" name="password" placeholder="Password" id="password-login">
+              </div>
+              <div class="login-checkbox">
+                <label>
+                  <input type="checkbox" name="remember">Remember Me
+                </label>
+              </div>
+              <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">sign in</button>
+            </form>
+          </div>
+        </div>
       </div>
-      <div class="form-group">
-        <label for="password-login">password:</label>
-        <input class="form-input" type="password" id="password-login" />
+    </div>
+    <div class="container">
+      <div class="login-wrap">
+        <div class="login-content">
+          <h3 style="text-align:center">New Users</h3>
+          <div class="login-form signup-form">
+            <form action="" method="post">
+              <div class="form-group">
+                <label>Username</label>
+                <input class="au-input au-input--full" type="text" name="username" placeholder="Username" id="name-signup">
+              </div>
+              <div class="form-group">
+                <label>Email Address</label>
+                <input class="au-input au-input--full" type="email" name="email" placeholder="Email" id="email-signup">
+              </div>
+              <div class="form-group">
+                <label>Password</label>
+                <input class="au-input au-input--full" type="password" name="password" placeholder="Password" id="password-signup">
+              </div>
+              <div class="login-checkbox">
+                <label>
+                  <input type="checkbox" name="aggree">Agree the terms and policy
+                </label>
+              </div>
+              <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">register</button>
+            </form>
+          </div>
+        </div>
       </div>
-      <div class="form-group">
-        <button class="btn btn-primary" type="submit">login</button>
-      </div>
-    </form>
-  </div>
-  <div class="col-md-6">
-    <h2>Signup</h2>
-
-    <form class="form signup-form">
-      <div class="form-group">
-        <label for="name-signup">name:</label>
-        <input class="form-input" type="text" id="name-signup" />
-      </div>
-      <div class="form-group">
-        <label for="email-signup">email:</label>
-        <input class="form-input" type="text" id="email-signup" />
-      </div>
-      <div class="form-group">
-        <label for="password-signup">password:</label>
-        <input class="form-input" type="password" id="password-signup" />
-      </div>
-      <div class="form-group">
-        <button class="btn btn-primary" type="submit">signup</button>
-      </div>
-    </form>
+    </div>
   </div>
 </div>
 
