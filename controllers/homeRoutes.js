@@ -27,7 +27,7 @@ router.get('/', async (req, res) => {
 });
 
 // Prevent non logged in users from viewing the homepage
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
   try {
     const jobsData = await JobPost.findByPk(req.params.id, {
       include: [
