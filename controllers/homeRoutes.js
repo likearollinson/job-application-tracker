@@ -26,6 +26,19 @@ router.get('/', async (req, res) => {
   }
 });
 
+// Render job.handlebars
+router.get('/:id', async (req, res) => {
+  try {
+    const jobData = await JobPost.findByPk(req.params.id)
+
+    const job = jobData.get({ plain: true });
+
+    res.render('job', job);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+})
+
 // Prevent non logged in users from viewing the homepage
 router.get('/', withAuth, async (req, res) => {
   try {

@@ -116,49 +116,49 @@
           <div class="card-body card-block">
             <!-- Company Name -->
             <div class="form-group">
-              <label for="company" class=" form-control-label"> Company </label>
-              <input type="text" id="company" placeholder="Enter your company name" class="form-control">
+              <label for="company" class=" form-control-label">Company <span style="color: red;">*</span></label>
+              <input type="text" id="company" placeholder="Enter company name" class="form-control">
             </div>
             <!-- Company Position -->
             <div class="form-group">
-              <label for="position" class=" form-control-label">Position</label>
-              <input type="text" id="vat" placeholder="Enter your position title here" class="form-control">
+              <label for="position" class=" form-control-label">Position <span style="color: red;">*</span></label>
+              <input type="text" id="title" placeholder="Enter position title" class="form-control">
             </div>
             <!-- Company Location -->
             <div class="form-group">
-              <label for="location" class=" form-control-label">Enter location name</label>
-              <input type="text" id="street" placeholder="Enter street name" class="form-control">
+              <label for="location" class=" form-control-label">Location <span style="color: red;">*</span></label>
+              <input type="text" id="location" placeholder="Enter job location" class="form-control">
             </div>
             <!-- Company Description -->
             <div class="form-group">
               <label for="desc" class=" form-control-label">Description</label>
-              <input type="text" id="desc" placeholder="Enter job description here" class="form-control">
+              <input type="text" id="desc" placeholder="Enter job description (optional)" class="form-control">
             </div>
             <!-- Contact Information -->
             <div class="form-group">
-              <label for="contact-info" class=" form-control-label">Contact Information </label>
-              <input type="text" id="con-info" placeholder="Enter contact information here" class="form-control">
+              <label for="contact-info" class=" form-control-label">Contact Information</label>
+              <input type="text" id="con-info" placeholder="Enter contact information (optional)" class="form-control">
             </div>
             <!-- Job URL Link -->
             <div class="form-group">
               <label for="url" class=" form-control-label">Job Link</label>
-              <input type="text" id="url" placeholder="Enter job posting url here" class="form-control">
+              <input type="text" id="url" placeholder="Enter job posting url (optional)" class="form-control">
             </div>
             <!-- Salary Information -->
             <div class="form-group">
               <label for="salary" class=" form-control-label">Salary</label>
-              <input type="text" id="salary" placeholder="Enter salary here" class="form-control">
+              <input type="text" id="salary" placeholder="Enter salary (optional)" class="form-control">
             </div>
             <!-- Additional Comments -->
             <div class="form-group">
               <label for="comments" class=" form-control-label">Additional Comments</label>
-              <input type="text" id="comments" placeholder="Enter any additional comments here" class="form-control">
+              <input type="text" id="comments" placeholder="Enter any additional comments (optional)" class="form-control">
             </div>
             <!-- Application Status -->
             <div class="form-group">
-              <label for="status" class=" form-control-label">Application Status</label>
+              <label for="status" class=" form-control-label">Application Status <span style="color: red;">*</span></label>
               <select name="select" id="select" class="form-control">
-                <option value="0">Not Started Process</option>
+                <option value="0">Not Started</option>
                 <option value="1">In Progress</option>
                 <option value="2">Applied</option>
                 <option value="3">Interviewing</option>
@@ -172,68 +172,7 @@
       </div>
       <div class="modal-footer">
         <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button> -->
-        <button id="add-job-button" type="button" class="btn btn-primary">Okay</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-
-<!-- Modal on Job HTML -->
-<div class="modal fade" id="jobInfo" tabindex="-1" role="dialog" aria-labelledby="jobInfoLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="scrollmodalLabel">Front-End Web Developer - Raleigh, North Carolina
-        </h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">×</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p>
-        <h3> Front-End Web Developer</h3>
-        <h4>Raleigh, North Carolina</h4>
-        <br>
-        <h6>Date Added: September 27th, 2018 </h6>
-        <br>
-        <h5> Description </h5>
-        Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue
-        laoreet rutrum
-        faucibus dolor auctor.
-        <br> Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque
-        nisl consectetur et.
-        Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
-        <br> Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in,
-        egestas eget quam. Morbi
-        leo risus, porta ac consectetur ac, vestibulum at eros.
-        <br> Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel
-        augue laoreet rutrum
-        faucibus dolor auctor.
-        <br>
-        <br>
-        <h5>Contact Information</h5>
-        <p> Contact Name: Georgia Alburns </p>
-        <p> Email:georgriaalburns@gmail.com</p>
-        <br>
-        <h5>Current Position</h5>
-        <br>
-        <div class="sufee-alert alert with-close alert-warning alert-dismissible fade show">
-          <span class="badge badge-pill badge-warning">Interviewing</span>
-          You currently have your next interview on October 7th, 2021.
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-        <br>
-        <em> Insert Calendar and information here </em>
-        </p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-primary" id="add-job-button">Confirm</button>
+        <button id="add-job-button" type="button" class="btn btn-primary">Add Job</button>
       </div>
     </div>
   </div>
