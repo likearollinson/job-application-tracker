@@ -36,6 +36,9 @@
   <!-- Main CSS-->
   <link href="./css/libraries/theme.css" rel="stylesheet" media="all">
 
+  {{!-- Calendar CDN --}}
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.9.0/main.min.css">
+
 </head>
 
 <body class="animsition" style="animation-duration: 900ms; opacity: 1;">
@@ -58,7 +61,7 @@
               </style>
               <h2 id="applitrak"> AppliTrack </h2>
               <!-- Conditionally render login or logout links -->
-              {{#if logged_in}}
+              {{!-- {{#if logged_in}} --}}
               <!--            Hamburger Menu Start-->
               <!--                            hamburger icon-->
               <div class="header-button-item mr-0 js-sidebar-btn">
@@ -73,7 +76,7 @@
                   <!--                                      hamburger items-->
                   <!--                                        logout-->
                   <div class="account-dropdown__item">
-                    <a href="#">
+                    <a href="/login"id="logout">
                       <i class="fa fa-power-off"></i>Logout</a>
                   </div>
                   <!--                                        calendar-->
@@ -83,7 +86,7 @@
                   </div>
                 </div>
               </div>
-              {{/if}}
+              {{!-- {{/if}} --}}
             </div>
           </div>
         </div>

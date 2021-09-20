@@ -1,5 +1,6 @@
 const User = require('./User');
 const JobPost = require('./JobPost');
+const Events = require('./Events');
 
 User.hasMany(JobPost, {
   foreignKey: 'user_id',
@@ -10,4 +11,9 @@ JobPost.belongsTo(User, {
   foreignKey: 'user_id'
 });
 
-module.exports = { User, JobPost };
+Events.belongsTo(User, {
+  foreignkey: 'user_id'
+})
+
+
+module.exports = { User, JobPost, Events };
