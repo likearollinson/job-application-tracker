@@ -1,6 +1,5 @@
 const addJobButtonEl = document.querySelector('#add-job-button');
 const deleteJobButtonEls = document.querySelectorAll('.delete-job-button');
-const redirectButtonEls = document.querySelectorAll('.redirect-button');
 
 const companyInputEl = document.querySelector('#company');
 const positionInputEl = document.querySelector('#title');
@@ -17,10 +16,6 @@ function init() {
 
   deleteJobButtonEls.forEach((deleteButton) =>
     deleteButton.addEventListener('click', handleDeleteJob)
-  );
-
-  redirectButtonEls.forEach((redirectButton) =>
-    redirectButton.addEventListener('click', handleRedirect)
   );
 }
 
@@ -77,12 +72,6 @@ async function handleDeleteJob(event) {
   });
 
   document.location.replace('/');
-}
-
-function handleRedirect(event) {
-  const id = findJobId(event);
-
-  document.location.replace(`/${id}`);
 }
 
 // Find data-job-id

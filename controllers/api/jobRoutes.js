@@ -47,11 +47,7 @@ router.put('/:id', async (req, res) => {
         },
       });
 
-      if (!jobData[0]) {
-        return res.status(400).json({ message: 'No job with this id.' });
-      } else {
-        res.status(200).json(jobData);
-      }
+      res.status(200).json(jobData);
     } else {
       res.status(400).json({ message: 'Bad request.' });
     }
