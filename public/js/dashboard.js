@@ -2,8 +2,8 @@ const addJobButtonEl = document.querySelector('#add-job-button');
 const deleteJobButtonEls = document.querySelectorAll('.delete-job-button');
 
 const companyInputEl = document.querySelector('#company');
-const positionInputEl = document.querySelector('#vat');
-const locationInputEl = document.querySelector('#street');
+const positionInputEl = document.querySelector('#title');
+const locationInputEl = document.querySelector('#location');
 const descriptionInputEl = document.querySelector('#desc');
 const contactInfoInputEl = document.querySelector('#con-info');
 const jobUrlInputEl = document.querySelector('#url');
@@ -22,19 +22,21 @@ function init() {
 async function handleAddJob(event) {
   event.preventDefault();
 
-  const title = positionInputEl.value.trim();
-  const link = jobUrlInputEl.value.trim();
   const company_name = companyInputEl.value.trim();
-  const description = descriptionInputEl.value.trim();
-  const salary_information = salaryInputEl.value.trim();
-  const contact_information = contactInfoInputEl.value.trim();
-  const additional_comments = commentsInputEl.value.trim();
+  const title = positionInputEl.value.trim();
+  const location = checkForNull(locationInputEl);
+  const description = checkForNull(descriptionInputEl);
+  const contact_information = checkForNull(contactInfoInputEl);
+  const link = checkForNull(jobUrlInputEl);
+  const salary_information = checkForNull(salaryInputEl);
+  const additional_comments = checkForNull(commentsInputEl);
   const application_status =
     applicationSelectEl.options[applicationSelectEl.selectedIndex].text;
 
   // Create job object with user's input
   const newJobBody = {
     title,
+    location,
     link,
     company_name,
     description,
@@ -53,8 +55,12 @@ async function handleAddJob(event) {
     body: JSON.stringify(newJobBody),
   });
 
-  document.location.replace('/');
-  return newJobData.json();
+  // Check if valid post
+  if (newJobData.ok) {
+    document.location.replace('/');
+  } else {
+    window.alert('Please enter information into all required fields.');
+  }
 }
 
 async function handleDeleteJob(event) {
@@ -73,13 +79,15 @@ async function handleDeleteJob(event) {
   });
 
   document.location.replace('/');
-  return newJobData.json();
 }
 
-// Job button
-// Redirect user to job.html
-
-// Calendar button
-// Redirect user to calendar.html
+// Check for user input, return null if no input
+function checkForNull(inputEl) {
+  if (inputEl.value.trim()) {
+    return inputEl.value.trim();
+  } else {
+    return null;
+  }
+}
 
 init();

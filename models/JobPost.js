@@ -15,6 +15,10 @@ JobPost.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    location: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+    },
     link: {
       type: DataTypes.TEXT,
     },
