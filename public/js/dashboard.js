@@ -60,7 +60,7 @@ async function handleAddJob(event) {
     body: JSON.stringify(newJobBody),
   });
 
-  // Check if valid post
+  // Check if valid POST
   if (newJobData.ok) {
     document.location.replace('/');
   } else {

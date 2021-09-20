@@ -40,7 +40,7 @@ router.get('/:id', async (req, res) => {
 })
 
 // Prevent non logged in users from viewing the homepage
-router.get('/jobPost/:id', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
   try {
     const jobsData = await JobPost.findByPk(req.params.id, {
       include: [
@@ -52,12 +52,12 @@ router.get('/jobPost/:id', async (req, res) => {
 
     const jobs = jobsData.get({ plain: true });
 
-    res.json(jobsData);
-    // res.render('homepage', {
-    //  jobs,
-    // Pass the logged in flag to the template
-    //logged_in: req.session.logged_in,
-    //});
+    //res.json(jobsData);
+    res.render('dashboard', {
+      jobs,
+      //  Pass the logged in flag to the template
+      logged_in: req.session.logged_in,
+    });
   } catch (err) {
     res.status(500).json(err);
   }

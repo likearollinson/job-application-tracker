@@ -28,6 +28,7 @@ async function handleEditJob(event) {
   const application_status =
     applicationSelectEl.options[applicationSelectEl.selectedIndex].text;
 
+  // Create job object with user's input
   const updatedJobBody = {
     title,
     location,
@@ -42,6 +43,7 @@ async function handleEditJob(event) {
 
   const id = event.target.dataset.jobId;
 
+  // PUT updated job
   const updatedJobData = await fetch(`/api/job/${id}`, {
     method: 'PUT',
     headers: {
@@ -50,6 +52,7 @@ async function handleEditJob(event) {
     body: JSON.stringify(updatedJobBody),
   });
 
+  // Check if valid PUT
   if (updatedJobData.ok) {
     document.location.replace(`/${id}`);
   } else {
