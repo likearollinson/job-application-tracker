@@ -7,17 +7,13 @@
     <td>{{date_created}}</td>
     <!--Status-->
     <td>
-        <span class="badge badge-pill badge-warning">{{application_status}}</span>
+        <span class="badge badge-pill badge-{{getApplicationStatusColor application_status}}">{{application_status}}</span>
     </td>
     <!--Location-->
     <td>{{location}}</td>
     <!--Icons-->
     <td>
         <div class="table-data-feature" data-job-id="{{id}}">
-            <!--Edit-->
-            <button class="item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit">
-                <i class="zmdi zmdi-edit"></i>
-            </button>
             <!--Delete-->
             <button class="item delete-job-button" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete">
                 <i class="zmdi zmdi-delete"></i>
