@@ -1,0 +1,242 @@
+<!--Job Board Start-->
+<div class="row">
+  <div class="col-md-12">
+    <!-- DATA TABLE -->
+    <h3 class="title-5 m-b-35">Job Board</h3>
+
+    <div class="table-data__tool">
+      <div class="table-data__tool-left">
+        <div class="rs-select2--light rs-select2--md">
+          <select class="js-select2 select2-hidden-accessible" name="property" tabindex="-1" aria-hidden="true">
+            <option selected="selected">All Properties</option>
+            <option value="">Option 1</option>
+            <option value="">Option 2</option>
+          </select>
+          <div class="dropDownSelect2"></div>
+        </div>
+        <div class="rs-select2--light rs-select2--sm">
+          <select class="js-select2 select2-hidden-accessible" name="time" tabindex="-1" aria-hidden="true">
+            <option selected="selected">Today</option>
+            <option value="">3 Days</option>
+            <option value="">1 Week</option>
+          </select>
+          <div class="dropDownSelect2"></div>
+        </div>
+        <button class="au-btn-filter">
+          <i class="zmdi zmdi-filter-list"></i>filters</button>
+      </div>
+      <div class="table-data__tool-right">
+        <!-- Add New Job Button -->
+        <button class="au-btn au-btn-icon au-btn--green au-btn--small" type="button" data-toggle="modal"
+          data-target="#addJobModal" data-placement="top">
+          <i class="zmdi zmdi-plus"></i>add job</button>
+
+        <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
+          <select class="js-select2 select2-hidden-accessible" name="type" tabindex="-1" aria-hidden="true">
+            <option selected="selected">Export</option>
+            <option value="">Option 1</option>
+            <option value="">Option 2</option>
+          </select>
+          <div class="dropDownSelect2"></div>
+        </div>
+      </div>
+    </div>
+    <div class="table-responsive table-responsive-data2">
+
+      <!--Table Start-->
+
+      <table class="table table-data2">
+        <!--Table Headers-->
+        <thead>
+          <tr>
+            <th>Position</th>
+            <th>Company</th>
+            <th>Date added</th>
+            <th>status</th>
+            <th>Location</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each jobs as |job|}}
+          {{> job-card}}
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+    <!-- END DATA TABLE -->
+  </div>
+</div>
+
+<!-- Calendar Start-->
+<section>
+  <div class="container-fluid">
+    <div id="calendar" style="height: 800px;"></div>
+  </div>
+</section>
+<!-- Footer HTML-->
+<section>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="copyright">
+          <p>Copyright © 2021 Applitrack. All rights reserved.</a></p>
+          <!-- Template by <a href="https://colorlib.com">Colorlib -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- END PAGE CONTAINER-->
+</div>
+
+</div>
+
+<!--Modals HTML-->
+
+<!-- Add New Job Modal HTML -->
+
+<div class="modal fade" id="addJobModal" tabindex="-1" role="dialog" aria-labelledby="scrollmodalLabel"
+  style="display: none;" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="scrollmodalLabel"> Add New Job Information Below </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="card">
+          <div class="card-header">
+            <strong>Add New Job</strong>
+            <small> Form</small>
+          </div>
+
+          <div class="card-body card-block">
+            <!-- Company Name -->
+            <div class="form-group">
+              <label for="company" class=" form-control-label"> Company </label>
+              <input type="text" id="company" placeholder="Enter your company name" class="form-control">
+            </div>
+            <!-- Company Position -->
+            <div class="form-group">
+              <label for="position" class=" form-control-label">Position</label>
+              <input type="text" id="vat" placeholder="Enter your position title here" class="form-control">
+            </div>
+            <!-- Company Location -->
+            <div class="form-group">
+              <label for="location" class=" form-control-label">Enter location name</label>
+              <input type="text" id="street" placeholder="Enter street name" class="form-control">
+            </div>
+            <!-- Company Description -->
+            <div class="form-group">
+              <label for="desc" class=" form-control-label">Description</label>
+              <input type="text" id="desc" placeholder="Enter job description here" class="form-control">
+            </div>
+            <!-- Contact Information -->
+            <div class="form-group">
+              <label for="contact-info" class=" form-control-label">Contact Information </label>
+              <input type="text" id="con-info" placeholder="Enter contact information here" class="form-control">
+            </div>
+            <!-- Job URL Link -->
+            <div class="form-group">
+              <label for="url" class=" form-control-label">Job Link</label>
+              <input type="text" id="url" placeholder="Enter job posting url here" class="form-control">
+            </div>
+            <!-- Salary Information -->
+            <div class="form-group">
+              <label for="salary" class=" form-control-label">Salary</label>
+              <input type="text" id="salary" placeholder="Enter salary here" class="form-control">
+            </div>
+            <!-- Additional Comments -->
+            <div class="form-group">
+              <label for="comments" class=" form-control-label">Additional Comments</label>
+              <input type="text" id="comments" placeholder="Enter any additional comments here" class="form-control">
+            </div>
+            <!-- Application Status -->
+            <div class="form-group">
+              <label for="status" class=" form-control-label">Application Status</label>
+              <select name="select" id="select" class="form-control">
+                <option value="0">Not Started Process</option>
+                <option value="1">In Progress</option>
+                <option value="2">Applied</option>
+                <option value="3">Interviewing</option>
+                <option value="4">Final Interview</option>
+                <option value="5">Accepted</option>
+                <option value="6">Denied</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button> -->
+        <button id="add-job-button" type="button" class="btn btn-primary">Okay</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- Modal on Job HTML -->
+<div class="modal fade" id="jobInfo" tabindex="-1" role="dialog" aria-labelledby="jobInfoLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="scrollmodalLabel">Front-End Web Developer - Raleigh, North Carolina
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>
+        <h3> Front-End Web Developer</h3>
+        <h4>Raleigh, North Carolina</h4>
+        <br>
+        <h6>Date Added: September 27th, 2018 </h6>
+        <br>
+        <h5> Description </h5>
+        Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue
+        laoreet rutrum
+        faucibus dolor auctor.
+        <br> Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque
+        nisl consectetur et.
+        Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
+        <br> Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in,
+        egestas eget quam. Morbi
+        leo risus, porta ac consectetur ac, vestibulum at eros.
+        <br> Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel
+        augue laoreet rutrum
+        faucibus dolor auctor.
+        <br>
+        <br>
+        <h5>Contact Information</h5>
+        <p> Contact Name: Georgia Alburns </p>
+        <p> Email:georgriaalburns@gmail.com</p>
+        <br>
+        <h5>Current Position</h5>
+        <br>
+        <div class="sufee-alert alert with-close alert-warning alert-dismissible fade show">
+          <span class="badge badge-pill badge-warning">Interviewing</span>
+          You currently have your next interview on October 7th, 2021.
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <br>
+        <em> Insert Calendar and information here </em>
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" id="add-job-button">Confirm</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="./js/dashboard.js"></script>

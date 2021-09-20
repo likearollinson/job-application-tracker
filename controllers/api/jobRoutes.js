@@ -4,17 +4,8 @@ const withAuth = require('../../utils/auth');
 
 router.post('/', async (req, res) => {
   try {
-    const newJob = await JobPost.create({
-      ...req.body,
+    const newJob = await JobPost.create(req.body, {
       user_id: req.session.user_id,
-      title: req.body.title,
-      link: req.body.link,
-      company_name: req.body.company_name,
-      description: req.body.description,
-      salary_information: req.body.salary_information,
-      contact_information: req.body.contact_information,
-      application_status: req.body.application_status,
-      additional_comments: req.body.additional_comments,
     });
 
     res.status(200).json(newJob);
