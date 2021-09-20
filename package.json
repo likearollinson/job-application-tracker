@@ -22,15 +22,7 @@
     "moment": "2.24.0",
     "mysql2": "^2.2.5",
     "sequelize": "^6.3.5",
-<<<<<<< HEAD
-    "sequelize-to-json": "^0.10.4",
-    "tui-calendar": "1.12.11",
-    "tui-code-snippet": "1.5.2",
-    "tui-date-picker": "4.0.3",
-    "tui-time-picker": "2.0.3"
-=======
     "moment": "2.24.0"
->>>>>>> origin
   },
   "devDependencies": {
     "eslint": "^7.12.1",
