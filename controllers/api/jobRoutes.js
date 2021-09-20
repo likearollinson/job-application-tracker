@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { JobPost } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.post('/', async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
   try {
     const newJob = await JobPost.create(req.body, {
       user_id: req.session.user_id,
