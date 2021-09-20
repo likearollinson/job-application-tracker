@@ -4,26 +4,22 @@
     <!--Company Name-->
     <td>{{company_name}}</td>
     <!--Date Added-->
-    <td>{{date_created}}</td>
+    <td>{{format_date date_created}}</td>
     <!--Status-->
     <td>
-        <span class="badge badge-pill badge-warning">{{application_status}}</span>
+        <span class="badge badge-pill badge-{{getApplicationStatusColor application_status}}">{{application_status}}</span>
     </td>
     <!--Location-->
-    <td>HARDCODED</td>
+    <td>{{location}}</td>
     <!--Icons-->
     <td>
-        <div class="table-data-feature">
-            <!--Edit-->
-            <button class="item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit">
-                <i class="zmdi zmdi-edit"></i>
-            </button>
+        <div class="table-data-feature" data-job-id="{{id}}">
             <!--Delete-->
-            <button class="item delete-job-button" data-job-id="{{id}}" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete">
+            <button class="item delete-job-button" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete">
                 <i class="zmdi zmdi-delete"></i>
             </button>
             <!--More Info-->
-            <button class="item btn btn-secondary mb-1" type="button" data-toggle="modal" data-placement="top" title="" data-original-title="More" data-target="#jobInfo">
+            <button class="item btn btn-secondary mb-1 redirect-button" type="button" data-placement="top" title="" data-original-title="More">
                 <i class="zmdi zmdi-more"></i>
             </button>
         </div>

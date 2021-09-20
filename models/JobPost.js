@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class JobPost extends Model { }
+class JobPost extends Model {}
 
 JobPost.init(
   {
@@ -13,6 +13,10 @@ JobPost.init(
     },
     title: {
       type: DataTypes.STRING,
+      allowNull: false,
+    },
+    location: {
+      type: DataTypes.TEXT,
       allowNull: false,
     },
     link: {

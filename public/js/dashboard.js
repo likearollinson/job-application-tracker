@@ -1,9 +1,10 @@
 const addJobButtonEl = document.querySelector('#add-job-button');
 const deleteJobButtonEls = document.querySelectorAll('.delete-job-button');
+const redirectButtonEls = document.querySelectorAll('.redirect-button');
 
 const companyInputEl = document.querySelector('#company');
-const positionInputEl = document.querySelector('#vat');
-const locationInputEl = document.querySelector('#street');
+const positionInputEl = document.querySelector('#title');
+const locationInputEl = document.querySelector('#location');
 const descriptionInputEl = document.querySelector('#desc');
 const contactInfoInputEl = document.querySelector('#con-info');
 const jobUrlInputEl = document.querySelector('#url');
@@ -17,24 +18,30 @@ function init() {
   deleteJobButtonEls.forEach((deleteButton) =>
     deleteButton.addEventListener('click', handleDeleteJob)
   );
+
+  redirectButtonEls.forEach((redirectButton) =>
+    redirectButton.addEventListener('click', handleRedirect)
+  );
 }
 
 async function handleAddJob(event) {
   event.preventDefault();
 
-  const title = positionInputEl.value.trim();
-  const link = jobUrlInputEl.value.trim();
   const company_name = companyInputEl.value.trim();
-  const description = descriptionInputEl.value.trim();
-  const salary_information = salaryInputEl.value.trim();
-  const contact_information = contactInfoInputEl.value.trim();
-  const additional_comments = commentsInputEl.value.trim();
+  const title = positionInputEl.value.trim();
+  const location = locationInputEl.value.trim();
+  const description = checkForNull(descriptionInputEl);
+  const contact_information = checkForNull(contactInfoInputEl);
+  const link = checkForNull(jobUrlInputEl);
+  const salary_information = checkForNull(salaryInputEl);
+  const additional_comments = checkForNull(commentsInputEl);
   const application_status =
     applicationSelectEl.options[applicationSelectEl.selectedIndex].text;
 
   // Create job object with user's input
   const newJobBody = {
     title,
+    location,
     link,
     company_name,
     description,
@@ -53,33 +60,47 @@ async function handleAddJob(event) {
     body: JSON.stringify(newJobBody),
   });
 
-  document.location.replace('/');
-  return newJobData.json();
+  // Check if valid POST
+  if (newJobData.ok) {
+    document.location.replace('/');
+  } else {
+    window.alert('Please enter information into all required fields.');
+  }
 }
 
 async function handleDeleteJob(event) {
-  let id;
-
-  // Find data-job-id
-  if (event.target.dataset.jobId) {
-    id = event.target.dataset.jobId;
-  } else {
-    id = event.target.parentNode.dataset.jobId;
-  }
+  const id = findJobId(event);
 
   // DELETE job
-  const newJobData = await fetch(`/api/job/${id}`, {
+  const deletedJobData = await fetch(`/api/job/${id}`, {
     method: 'DELETE',
   });
 
   document.location.replace('/');
-  return newJobData.json();
 }
 
-// Job button
-// Redirect user to job.html
+function handleRedirect(event) {
+  const id = findJobId(event);
 
-// Calendar button
-// Redirect user to calendar.html
+  document.location.replace(`/${id}`);
+}
+
+// Find data-job-id
+function findJobId(event) {
+  if (event.target.parentNode.dataset.jobId) {
+    return event.target.parentNode.dataset.jobId;
+  } else {
+    return event.target.parentNode.parentNode.dataset.jobId;
+  }
+}
+
+// Check for user input, return null if no input
+function checkForNull(inputEl) {
+  if (inputEl.value.trim()) {
+    return inputEl.value.trim();
+  } else {
+    return null;
+  }
+}
 
 init();
