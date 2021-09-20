@@ -5,8 +5,177 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+
+        <!--    CSS Dependencies-->
+
+    <!-- Fontfaces CSS-->
+    <link href="../public/css/libraries/font-face.css" rel="stylesheet" media="all">
+    <link href="../public/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link href="../public/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
+    <link href="../public/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+
+    <!-- Bootstrap CSS-->
+    <link href="../public/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+
+    <!-- Vendor CSS-->
+    <link href="../public/vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
+    <link href="../public/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet"
+        media="all">
+    <link href="../public/vendor/wow/animate.css" rel="stylesheet" media="all">
+    <link href="../public/vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
+    <link href="../public/vendor/slick/slick.css" rel="stylesheet" media="all">
+    <link href="../public/vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="../public/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
+    <link href="../public/vendor/vector-map/jqvmap.min.css" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="../public/css/libraries/theme.css" rel="stylesheet" media="all">
+
   </head>
   <body>
+    <div class="page-wrapper">
+      <div class="page-content--bge5">
+        <div class="container">
+          <div class="login-wrap">
+            <div class="login-content">
+                <h3>{{company_name}}</h3>
+                <h4>{{title}}</h4>
+                <p>{{location}}</p> <br>
+                <p>Date Added: {{format_date date_created}}</p> <br>
+                <h4>Description</h4> <br>
+                <p>{{description}}</p> <br>
+                <p>Estimated Salary: {{format_amount salary_information}}</p> <br>
+                <p>Job Url: {{link}}</p> <br>
+                <h4>Contact Information</h4>
+                <p>{{contact_information}}</p> <br>
+                <h4>Addition Comments</h4>
+                <p>{{additional_comments}}</p>
+                <br><span class="badge badge-pill badge-{{getApplicationStatusColor application_status}}">{{application_status}}</span> <br> <br>
+                <button class="au-btn au-btn--block au-btn--green m-b-20" data-toggle="modal" data-target="#editJobModal" data-placement="top">Edit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+
+
+
+
+<div class="modal fade" id="editJobModal" tabindex="-1" role="dialog" aria-labelledby="scrollmodalLabel"
+  style="display: none;" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="scrollmodalLabel">Update Job Information</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="card">
+          <div class="card-header">
+            <strong>Update Job</strong>
+            <small> Form</small>
+          </div>
+
+          <div class="card-body card-block">
+            <!-- Company Name -->
+            <div class="form-group">
+              <label for="company" class=" form-control-label">Company <span style="color: red;">*</span></label>
+              <input type="text" id="company" placeholder="Enter company name" value="{{company_name}}" class="form-control">
+            </div>
+            <!-- Company Position -->
+            <div class="form-group">
+              <label for="position" class=" form-control-label">Position <span style="color: red;">*</span></label>
+              <input type="text" id="title" placeholder="Enter position title" value="{{title}}" class="form-control">
+            </div>
+            <!-- Company Location -->
+            <div class="form-group">
+              <label for="location" class=" form-control-label">Location <span style="color: red;">*</span></label>
+              <input type="text" id="location" placeholder="Enter job location" value="{{location}}" class="form-control">
+            </div>
+            <!-- Company Description -->
+            <div class="form-group">
+              <label for="desc" class=" form-control-label">Description</label>
+              <input type="text" id="desc" placeholder="Enter job description (optional)" value="{{description}}" class="form-control">
+            </div>
+            <!-- Contact Information -->
+            <div class="form-group">
+              <label for="contact-info" class=" form-control-label">Contact Information</label>
+              <input type="text" id="con-info" placeholder="Enter contact information (optional)" value="{{contact_information}}" class="form-control">
+            </div>
+            <!-- Job URL Link -->
+            <div class="form-group">
+              <label for="url" class=" form-control-label">Job Link</label>
+              <input type="text" id="url" placeholder="Enter job posting url (optional)" value="{{link}}" class="form-control">
+            </div>
+            <!-- Salary Information -->
+            <div class="form-group">
+              <label for="salary" class=" form-control-label">Salary</label>
+              <input type="text" id="salary" placeholder="Enter salary (optional)" value="{{salary_information}}" class="form-control">
+            </div>
+            <!-- Additional Comments -->
+            <div class="form-group">
+              <label for="comments" class=" form-control-label">Additional Comments</label>
+              <input type="text" id="comments" placeholder="Enter any additional comments (optional)" value="{{additional_comments}}" class="form-control">
+            </div>
+            <!-- Application Status -->
+            <div class="form-group">
+              <label for="status" class=" form-control-label">Application Status <span style="color: red;">*</span></label>
+              <select name="select" id="select" class="form-control">
+                <option value="0">Not Started</option>
+                <option value="1">In Progress</option>
+                <option value="2">Applied</option>
+                <option value="3">Interviewing</option>
+                <option value="4">Final Interview</option>
+                <option value="5">Accepted</option>
+                <option value="6">Denied</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button> -->
+        <button id="edit-job-button" type="button" class="btn btn-primary" data-job-id="{{id}}">Update Job</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+ <!-- Javascript Dependencies -->
+    <!-- Jquery JS-->
+    <script src="../public/vendor/jquery-3.2.1.min.js"></script>
+    <!-- Bootstrap JS-->
+    <script src="../public/vendor/bootstrap-4.1/popper.min.js"></script>
+    <script src="../public/vendor/bootstrap-4.1/bootstrap.min.js"></script>
+    <!-- Vendor JS       -->
+    <script src="../public/vendor/slick/slick.min.js">
+    </script>
+    <script src="../public/vendor/wow/wow.min.js"></script>
+    <script src="../public/vendor/animsition/animsition.min.js"></script>
+    <script src="../public/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
+    </script>
+    <script src="../public/vendor/counter-up/jquery.waypoints.min.js"></script>
+    <script src="../public/vendor/counter-up/jquery.counterup.min.js">
+    </script>
+    <script src="../public/vendor/circle-progress/circle-progress.min.js"></script>
+    <script src="../public/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="../public/vendor/chartjs/Chart.bundle.min.js"></script>
+    <script src="../public/vendor/select2/select2.min.js">
+    </script>
+    <script src="../public/vendor/vector-map/jquery.vmap.js"></script>
+    <script src="../public/vendor/vector-map/jquery.vmap.min.js"></script>
+    <script src="../public/vendor/vector-map/jquery.vmap.sampledata.js"></script>
+    <script src="../public/vendor/vector-map/jquery.vmap.world.js"></script>
+
+    <!-- Main JS-->
+    <script src="../public/js/libraries/main.js"></script>
+    <div class="jqvmap-label" style="display: none; left: 1367.75px; top: 819px;">Greenland</div>
+
     <script src="../public/js/job.js"></script>
+
   </body>
 </html>
