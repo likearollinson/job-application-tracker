@@ -116,17 +116,17 @@
           <div class="card-body card-block">
             <!-- Company Name -->
             <div class="form-group">
-              <label for="company" class=" form-control-label">Company</label>
+              <label for="company" class=" form-control-label">Company <span style="color: red;">*</span></label>
               <input type="text" id="company" placeholder="Enter company name" class="form-control">
             </div>
             <!-- Company Position -->
             <div class="form-group">
-              <label for="position" class=" form-control-label">Position</label>
+              <label for="position" class=" form-control-label">Position <span style="color: red;">*</span></label>
               <input type="text" id="title" placeholder="Enter position title" class="form-control">
             </div>
             <!-- Company Location -->
             <div class="form-group">
-              <label for="location" class=" form-control-label">Location</label>
+              <label for="location" class=" form-control-label">Location <span style="color: red;">*</span></label>
               <input type="text" id="location" placeholder="Enter job location" class="form-control">
             </div>
             <!-- Company Description -->
@@ -156,9 +156,9 @@
             </div>
             <!-- Application Status -->
             <div class="form-group">
-              <label for="status" class=" form-control-label">Application Status</label>
+              <label for="status" class=" form-control-label">Application Status <span style="color: red;">*</span></label>
               <select name="select" id="select" class="form-control">
-                <option value="0">Not Started Process</option>
+                <option value="0">Not Started</option>
                 <option value="1">In Progress</option>
                 <option value="2">Applied</option>
                 <option value="3">Interviewing</option>
@@ -172,7 +172,7 @@
       </div>
       <div class="modal-footer">
         <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button> -->
-        <button id="add-job-button" type="button" class="btn btn-primary">Okay</button>
+        <button id="add-job-button" type="button" class="btn btn-primary">Add Job</button>
       </div>
     </div>
   </div>

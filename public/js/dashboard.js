@@ -1,5 +1,6 @@
 const addJobButtonEl = document.querySelector('#add-job-button');
 const deleteJobButtonEls = document.querySelectorAll('.delete-job-button');
+const redirectButtonEls = document.querySelectorAll('.redirect-button');
 
 const companyInputEl = document.querySelector('#company');
 const positionInputEl = document.querySelector('#title');
@@ -17,6 +18,10 @@ function init() {
   deleteJobButtonEls.forEach((deleteButton) =>
     deleteButton.addEventListener('click', handleDeleteJob)
   );
+
+  redirectButtonEls.forEach((redirectButton) =>
+    redirectButton.addEventListener('click', handleRedirect)
+  );
 }
 
 async function handleAddJob(event) {
@@ -24,7 +29,7 @@ async function handleAddJob(event) {
 
   const company_name = companyInputEl.value.trim();
   const title = positionInputEl.value.trim();
-  const location = checkForNull(locationInputEl);
+  const location = locationInputEl.value.trim();
   const description = checkForNull(descriptionInputEl);
   const contact_information = checkForNull(contactInfoInputEl);
   const link = checkForNull(jobUrlInputEl);
@@ -64,21 +69,29 @@ async function handleAddJob(event) {
 }
 
 async function handleDeleteJob(event) {
-  let id;
-
-  // Find data-job-id
-  if (event.target.dataset.jobId) {
-    id = event.target.dataset.jobId;
-  } else {
-    id = event.target.parentNode.dataset.jobId;
-  }
+  const id = findJobId(event);
 
   // DELETE job
-  const newJobData = await fetch(`/api/job/${id}`, {
+  const deletedJobData = await fetch(`/api/job/${id}`, {
     method: 'DELETE',
   });
 
   document.location.replace('/');
+}
+
+function handleRedirect(event) {
+  const id = findJobId(event);
+
+  document.location.replace(`/${id}`);
+}
+
+// Find data-job-id
+function findJobId(event) {
+  if (event.target.parentNode.dataset.jobId) {
+    return event.target.parentNode.dataset.jobId;
+  } else {
+    return event.target.parentNode.parentNode.dataset.jobId;
+  }
 }
 
 // Check for user input, return null if no input

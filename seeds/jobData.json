@@ -7,7 +7,7 @@
     "description": "development, python, java, c#, c++, kotlin, swift, programming, engineering, mobile developer, software developer, computer engineering, big data, machine learning",
     "salary_information": 39,
     "contact_information": "",
-    "application_status": "in progress",
+    "application_status": "In Progress",
     "additional_comments": "hands on experience with Testing using tools like JUnit and Mockito, Software Integration tools like JIRA, Jenkins"
   },
   {
@@ -16,7 +16,7 @@
     "location": "Cary",
     "company_name": " Vangaurd",
     "description": "2022 start date, Design front-end and back-end solutions for test-driven development",
-    "application_status": "submitted",
+    "application_status": "Applied",
     "additional_comments": "Follow agile methodologies such as Scrum, Kanban or adopt Lean principles. Build Angular web applications and Restful micro-services using Java hosted on the AWS cloud. Work on continuous delivery pipeline using Bamboo and run automated tests using Junit, Protractor, Jasmine and Selenium"
 
   },
@@ -26,7 +26,7 @@
     "location": "Durham",
     "company_name": "Birlasoft Solutions, Inc",
     "description": "Develop Java programs and web applications",
-    "application_status": "not submitted",
+    "application_status": "Interviewing",
     "additional_comments": "Understanding of object-oriented programming language. Fundamentals of software engineering. Understanding of web systems and architecture. Basic concepts of databases and transaction processing"
 
   }
