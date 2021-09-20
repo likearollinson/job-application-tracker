@@ -22,7 +22,7 @@
     "moment": "2.24.0",
     "mysql2": "^2.2.5",
     "sequelize": "^6.3.5",
-    "moment": "2.24.0"
+    "sequelize-to-json": "^0.10.4"
   },
   "devDependencies": {
     "eslint": "^7.12.1",

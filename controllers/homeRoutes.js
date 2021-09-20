@@ -27,7 +27,7 @@ router.get('/', async (req, res) => {
 });
 
 // Render job.handlebars
-router.get('/:id', async (req, res) => {
+router.get('/job:id', async (req, res) => {
   try {
     const jobData = await JobPost.findByPk(req.params.id)
 
