@@ -54,7 +54,7 @@ async function handleEditJob(event) {
 
   // Check if valid PUT
   if (updatedJobData.ok) {
-    document.location.replace(`/${id}`);
+    document.location.replace(`/jobPost/${id}`);
   } else {
     window.alert('Please enter information into all required fields.');
   }

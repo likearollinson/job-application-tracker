@@ -14,5 +14,7 @@ const scheme = {
 Events.findAll({
 }).then(function (events) {
     // serialize all the items efficiently
-    export const eventsAsJSON = Serializer.serializeMany(events, Events, scheme);
+    const eventsAsJSON = Serializer.serializeMany(events, Events, scheme);
 });
+
+module.exports = { eventsAsJSON };

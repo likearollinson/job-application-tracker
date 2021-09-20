@@ -1,3 +1,4 @@
+import './eventsToJSON.js'
 document.addEventListener('DOMContentLoaded', function () {
     var calendarEl = document.getElementById('calendar');
     var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -10,22 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         weekNumbers: true,
         dayMaxEvents: true, // allow "more" link when too many events
-        events: [
-            {
-                "id": 1,
-                "start": "2021-09-16T16:45:00+00:00",
-                "end": "2021-09-16T17:15:00+00:00",
-                "title": "Interview - First",
-                "url": "https://www.zoom.com"
-            },
-            {
-                "id": 2,
-                "start": "2021-09-19T16:45:00+00:00",
-                "end": "2021-09-19T17:15:00+00:00",
-                "title": "Interview - Second",
-                "url": "https://www.zoom.com"
-            }
-        ],
+        events: eventsAsJSON,
         headerToolbar: {
             center: 'addEventButton'
         },
