@@ -36,6 +36,9 @@
   <!-- Main CSS-->
   <link href="/css/libraries/theme.css" rel="stylesheet" media="all">
 
+  <!-- Calendar CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.9.0/main.css">
+
 </head>
 
 <body class="animsition" style="animation-duration: 900ms; opacity: 1;">
@@ -58,7 +61,7 @@
               </style>
               <h2 id="applitrak"> AppliTrack </h2>
               <!-- Conditionally render login or logout links -->
-              {{#if logged_in}}
+              {{!-- {{#if logged_in}} --}}
               <!--            Hamburger Menu Start-->
               <!--                            hamburger icon-->
               <div class="header-button-item mr-0 js-sidebar-btn">
@@ -73,8 +76,8 @@
                   <!--                                      hamburger items-->
                   <!--                                        logout-->
                   <div class="account-dropdown__item">
-                    <a href="/login">
-                      <i id= "logout" class="fa fa-power-off"></i>Logout</a>
+                    <a class="logout" href="/login">
+                      <i class="fa fa-power-off logout"></i>Logout</a>
                   </div>
                   <!--                                        calendar-->
                   <div class="account-dropdown__item">
@@ -83,7 +86,7 @@
                   </div>
                 </div>
               </div>
-              {{/if}}
+              {{!-- {{/if}} --}}
             </div>
           </div>
         </div>
@@ -123,11 +126,12 @@
 <script src="/vendor/chartjs/Chart.bundle.min.js"></script>
 <script src="/vendor/select2/select2.min.js">
 </script>
-<script src="/vendor/vector-map/jquery.vmap.js"></script>
-<script src="/vendor/vector-map/jquery.vmap.min.js"></script>
-<script src="/vendor/vector-map/jquery.vmap.sampledata.js"></script>
-<script src="/vendor/vector-map/jquery.vmap.world.js"></script>
-
+<script src="./vendor/vector-map/jquery.vmap.js"></script>
+<script src="./vendor/vector-map/jquery.vmap.min.js"></script>
+<script src="./vendor/vector-map/jquery.vmap.sampledata.js"></script>
+<script src="./vendor/vector-map/jquery.vmap.world.js"></script>
+<!-- FullCalender JS -->
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.9.0/main.js"></script>
 <!-- Main JS-->
 <script src="/js/libraries/main.js"></script>
 <div class="jqvmap-label" style="display: none; left: 1367.75px; top: 819px;">Greenland</div>
