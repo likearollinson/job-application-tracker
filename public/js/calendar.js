@@ -1,5 +1,20 @@
-import { eventsAsJSON } from "./eventsToJSON";
-document.addEventListener('DOMContentLoaded', function () {
+async function fetchEvents() {
+    try {
+        const response = await fetch('/api/events/', {
+            method: 'GET',
+            credentials: 'same-origin'
+        });
+        const eventsData = await response.json();
+        generateCalendar(eventsData);
+        return eventsData;
+    } catch (err) {
+        console.error(err);
+    }
+}
+
+fetchEvents();
+
+function generateCalendar(eventsData) {
     var calendarEl = document.getElementById('calendar');
     var calendar = new FullCalendar.Calendar(calendarEl, {
         timeZone: 'UTC',
@@ -11,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         weekNumbers: true,
         dayMaxEvents: true, // allow "more" link when too many events
-        events: eventsAsJSON,
+        events: eventsData,
         headerToolbar: {
             center: 'addEventButton'
         },
@@ -49,4 +64,4 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     calendar.render();
-});
+};
