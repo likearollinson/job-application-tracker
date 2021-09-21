@@ -5,10 +5,11 @@ const withAuth = require('../../utils/auth');
 router.post('/', withAuth, async (req, res) => {
   try {
     if (req.body.company_name && req.body.title && req.body.location) {
-      const newJob = await JobPost.create(req.body, {
-        user_id: req.session.user_id,
-      });
+      const body = req.body;
+      body.user_id = req.session.user_id;
 
+      const newJob = await JobPost.create(body);
+      
       res.status(200).json(newJob);
     } else {
       res.status(400).json({ message: 'Bad request.' });
