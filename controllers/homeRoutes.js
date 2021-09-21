@@ -6,7 +6,11 @@ const withAuth = require('../utils/auth');
 router.get('/', withAuth, async (req, res) => {
   try {
     // Find all jobs
-    const jobsData = await JobPost.findAll();
+    const jobsData = await JobPost.findAll({
+      where: {
+        user_id: req.session.user_id,
+      },
+    });
 
     const jobs = jobsData.map((job) => job.get({ plain: true }));
 
