@@ -3,14 +3,8 @@ const { JobPost, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 // Render dashboard.handlebars
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
   try {
-    // If a session exists, redirect the request to the homepage
-    if (!req.session.logged_in) {
-      res.redirect('/login');
-      return;
-    }
-
     // Find all jobs
     const jobsData = await JobPost.findAll();
 
@@ -27,7 +21,7 @@ router.get('/', async (req, res) => {
 });
 
 // Render job.handlebars
-router.get('/jobPost/:id', async (req, res) => {
+router.get('/jobPost/:id', withAuth, async (req, res) => {
   try {
     const jobData = await JobPost.findByPk(req.params.id)
 
@@ -39,30 +33,6 @@ router.get('/jobPost/:id', async (req, res) => {
   }
 })
 
-// Prevent non logged in users from viewing the homepage
-router.get('/', withAuth, async (req, res) => {
-  try {
-    const jobsData = await JobPost.findByPk(req.params.id, {
-      include: [
-        {
-          model: User,
-        },
-      ],
-    });
-
-    const jobs = jobsData.get({ plain: true });
-
-    //res.json(jobsData);
-    res.render('dashboard', {
-      jobs,
-      //  Pass the logged in flag to the template
-      logged_in: req.session.logged_in,
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
 router.get('/login', (req, res) => {
   // If a session exists, redirect the request to the homepage
   if (req.session.logged_in) {
@@ -71,11 +41,6 @@ router.get('/login', (req, res) => {
   }
 
   res.render('login');
-});
-
-router.get('/calendar', (req, res) => {
-
-  res.render('calendar');
 });
 
 module.exports = router;
