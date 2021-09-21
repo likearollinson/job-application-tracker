@@ -1,4 +1,4 @@
-import './eventsToJSON.js'
+import { eventsAsJSON } from "./eventsToJSON";
 document.addEventListener('DOMContentLoaded', function () {
     var calendarEl = document.getElementById('calendar');
     var calendar = new FullCalendar.Calendar(calendarEl, {
