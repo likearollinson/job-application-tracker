@@ -104,6 +104,8 @@ async function handleAddEvent(event) {
 function hourToMilitary(amPm, hour) {
   if (amPm === 'PM') {
     return parseInt(hour) + 12;
+  } else {
+    return hour;
   }
 }
 
