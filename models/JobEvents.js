@@ -1,42 +1,30 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
+const Events = require('./Events');
+const JobPost = require('./JobPost');
 
-class Events extends Model {}
+class JobEvents extends Model {}
 
-Events.init(
+JobEvents.init(
   {
+    // define columns
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
     },
-    start: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    end: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    title: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    url: {
-      type: DataTypes.STRING,
-    },
-    user_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'user',
-        key: 'id',
-      },
-    },
     job_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'jobPost',
+        model: 'JobPost',
+        key: 'id',
+      },
+    },
+    Events_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'Events',
         key: 'id',
       },
     },
@@ -46,8 +34,8 @@ Events.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'events',
+    modelName: 'job_events',
   }
 );
 
-module.exports = Events;
+module.exports = JobEvents;
