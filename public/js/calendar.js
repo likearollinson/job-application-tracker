@@ -49,14 +49,8 @@ async function handleAddEvent(event) {
 
   const url = checkForNull(urlEl);
 
-  // Convert hours into military time
-  if (startAmPm === 'PM') {
-    startTimeHour = parseInt(startTimeHour) + 12;
-  }
-
-  if (endAmPm === 'PM') {
-    endTimeHour = parseInt(endTimeHour) + 12;
-  }
+  startTimeHour = hourToMilitary(startAmPm, startTimeHour);
+  endTimeHour = hourToMilitary(endAmPm, endTimeHour);
 
   const start =
     startDateYear +
@@ -103,6 +97,13 @@ async function handleAddEvent(event) {
     document.location.replace('/calendar');
   } else {
     window.alert('Please enter information correctly in required fields');
+  }
+}
+
+// Convert hours into military time
+function hourToMilitary(amPm, hour) {
+  if (amPm === 'PM') {
+    return parseInt(hour) + 12;
   }
 }
 
