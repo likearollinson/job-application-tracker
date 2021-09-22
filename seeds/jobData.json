@@ -1,32 +1,35 @@
 [
   {
+    "user_id": 1,
     "title": "Junior Software Developer",
     "link": "https://www.dice.com/jobs/detail/4ac6ba2aad358ad758f7ccdac5a22939?searchlink=search%2F%3Fq%3Djunior%2520developer%26location%3DNorth%2520Carolina%2C%2520USA%26latitude%3D35.7595731%26longitude%3D-79.01929969999999%26countryCode%3DUS%26locationPrecision%3DState%26adminDistrictCode%3DNC%26radius%3D30%26radiusUnit%3Dmi%26page%3D1%26pageSize%3D20%26language%3Den%26eid%3DS2Q_%2C6Q_0&searchId=68841fc4-e738-415b-80c8-fb9b511a62df",
     "location": "Raleigh",
     "company_name": "Enhance IT",
-    "description": "development, python, java, c#, c++, kotlin, swift, programming, engineering, mobile developer, software developer, computer engineering, big data, machine learning",
-    "salary_information": 39,
+    "description": "Development, python, java, c#, c++, kotlin, swift, programming, engineering, mobile developer, software developer, computer engineering, big data, machine learning",
+    "salary_information": 39000,
     "contact_information": "",
-    "application_status": "In Progress",
-    "additional_comments": "hands on experience with Testing using tools like JUnit and Mockito, Software Integration tools like JIRA, Jenkins"
+    "application_status": "Interviewing",
+    "additional_comments": "Hands on experience with Testing using tools like JUnit and Mockito, Software Integration tools like JIRA, Jenkins"
   },
   {
+    "user_id": 1,
     "title": "Entry Level Developer",
     "link": "https://www.dice.com/jobs/detail/10bea91342e58445be531511d89362b0?searchlink=search%2F%3Fq%3Djunior%2520developer%26location%3DNorth%2520Carolina%2C%2520USA%26latitude%3D35.7595731%26longitude%3D-79.01929969999999%26countryCode%3DUS%26locationPrecision%3DState%26adminDistrictCode%3DNC%26radius%3D30%26radiusUnit%3Dmi%26page%3D1%26pageSize%3D20%26language%3Den%26eid%3DS2Q_%2C6Q_0&searchId=49e796a5-278d-4c32-85ea-b84e029e716e",
     "location": "Cary",
     "company_name": " Vangaurd",
     "description": "2022 start date, Design front-end and back-end solutions for test-driven development",
-    "application_status": "Applied",
+    "application_status": "Accepted",
     "additional_comments": "Follow agile methodologies such as Scrum, Kanban or adopt Lean principles. Build Angular web applications and Restful micro-services using Java hosted on the AWS cloud. Work on continuous delivery pipeline using Bamboo and run automated tests using Junit, Protractor, Jasmine and Selenium"
 
   },
   {
+    "user_id": 1,
     "title": "Java Developer- Entry Level- Full time",
     "link": "https://www.dice.com/jobs/detail/0477c26c13185cdb04a4a8aa001312e2?searchlink=search%2F%3Fq%3Djunior%2520developer%26location%3DNorth%2520Carolina%2C%2520USA%26latitude%3D35.7595731%26longitude%3D-79.01929969999999%26countryCode%3DUS%26locationPrecision%3DState%26adminDistrictCode%3DNC%26radius%3D30%26radiusUnit%3Dmi%26page%3D1%26pageSize%3D20%26language%3Den%26eid%3DS2Q_%2C6Q_0&searchId=3197334e-b6cb-4a6e-87ab-5c4203cbc2cf",
     "location": "Durham",
     "company_name": "Birlasoft Solutions, Inc",
     "description": "Develop Java programs and web applications",
-    "application_status": "Interviewing",
+    "application_status": "Denied",
     "additional_comments": "Understanding of object-oriented programming language. Fundamentals of software engineering. Understanding of web systems and architecture. Basic concepts of databases and transaction processing"
 
   }
