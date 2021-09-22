@@ -27,7 +27,7 @@ router.get('/', withAuth, async (req, res) => {
 // Render job.handlebars
 router.get('/jobPost/:id', withAuth, async (req, res) => {
   try {
-    const jobData = await JobPost.findByPk(req.params.id)
+    const jobData = await JobPost.findByPk(req.params.id);
 
     const job = jobData.get({ plain: true });
 
@@ -35,7 +35,7 @@ router.get('/jobPost/:id', withAuth, async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
-})
+});
 
 router.get('/login', (req, res) => {
   // If a session exists, redirect the request to the homepage
@@ -47,13 +47,27 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-router.get('/calendar', (req, res) => {
-  // If a session exists, redirect the request to the calendar
-  if (req.session.logged_in) {
-    res.render('calendar');
-    return;
+router.get('/calendar', async (req, res) => {
+  try {
+    // Find all jobs
+    const jobsData = await JobPost.findAll({
+      where: {
+        user_id: req.session.user_id,
+      },
+    });
+
+    const jobs = jobsData.map((job) => job.get({ plain: true }));
+
+    // If a session exists, redirect the request to the calendar
+    if (req.session.logged_in) {
+      res.render('calendar', {jobs});
+      return;
+    }
+
+    res.redirect('/login');
+  } catch (err) {
+    res.status(500).json(err);
   }
-  res.redirect('/login');
 });
 
 module.exports = router;
