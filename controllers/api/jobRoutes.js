@@ -1,8 +1,7 @@
 const router = require('express').Router();
 const { JobPost } = require('../../models');
-const withAuth = require('../../utils/auth');
 
-router.post('/', withAuth, async (req, res) => {
+router.post('/', async (req, res) => {
   try {
     if (req.body.company_name && req.body.title && req.body.location) {
       const body = req.body;

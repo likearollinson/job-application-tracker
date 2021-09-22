@@ -1,3 +1,5 @@
+const calendarEl = document.querySelector('#calendar');
+
 const editJobButtonEl = document.querySelector('#edit-job-button');
 
 const companyInputEl = document.querySelector('#company');
@@ -12,6 +14,8 @@ const applicationSelectEl = document.querySelector('#select');
 
 function init() {
   editJobButtonEl.addEventListener('click', handleEditJob);
+
+  fetchEvents();
 }
 
 async function handleEditJob(event) {
@@ -67,6 +71,32 @@ function checkForNull(inputEl) {
   } else {
     return null;
   }
+}
+
+// GET events
+async function fetchEvents() {
+  const id = editJobButtonEl.dataset.jobId;
+
+  const eventsData = await fetch(`/api/events/job/${id}`);
+
+  generateCalendar(eventsData);
+}
+
+// Render calendar to page
+function generateCalendar(eventsData) {
+  var calendar = new FullCalendar.Calendar(calendarEl, {
+    timeZone: 'UTC',
+    themeSystem: 'bootstrap',
+    headerToolbar: {
+      left: 'prev,next today',
+      center: 'title',
+      right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth',
+    },
+    weekNumbers: false,
+    dayMaxEvents: true, // allow "more" link when too many events
+    events: eventsData,
+  });
+  calendar.render();
 }
 
 init();
