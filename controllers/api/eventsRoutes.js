@@ -6,7 +6,6 @@ router.get('/', async (req, res) => {
     const eventsData = await Events.findAll({
       where: {
         user_id: req.session.user_id,
-        job_id: req.session.job_id,
       },
     });
     res.status(200).json(eventsData);
