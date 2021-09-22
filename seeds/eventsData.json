@@ -1,13 +1,11 @@
 [
     {
-    "id": 1,
     "start": "2021-09-16T16:45:00+00:00",
     "end": "2021-09-16T17:15:00+00:00",
     "title": "Interview - First",
     "url": "https://www.zoom.com"
     },
     {
-    "id": 2,
     "start": "2021-09-19T16:45:00+00:00",
     "end": "2021-09-19T17:15:00+00:00",
     "title": "Interview - Second",
