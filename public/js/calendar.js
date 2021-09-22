@@ -1,5 +1,6 @@
-const editEventButtonEl = document.querySelector('#edit-event-button');
+const addEventButtonEl = document.querySelector('#add-event-button');
 
+const jobSelectEl = document.querySelector('#select-job');
 const startDateMonthEl = document.querySelector('#start-date-month');
 const startDateDayEl = document.querySelector('#start-date-day');
 const startDateYearEl = document.querySelector('#start-date-year');
@@ -16,108 +17,120 @@ const eventTitleEl = document.querySelector('#title');
 const urlEl = document.querySelector('#url');
 
 function init() {
-    editEventButtonEl.addEventListener('click', handleEditEvent);
+  addEventButtonEl.addEventListener('click', handleAddEvent);
+
+  fetchEvents();
 }
 
-async function handleEditEvent(event) {
-    event.preventDefault();
+async function handleAddEvent(event) {
+  event.preventDefault();
 
-    console.log(startAmPmEl)
+  const job_id = jobSelectEl.options[jobSelectEl.selectedIndex].value;
+  const startDateMonth = startDateMonthEl.value.trim();
+  const startDateDay = startDateDayEl.value.trim();
+  const startDateYear = startDateYearEl.value.trim();
+  const endDateMonth = endDateMonthEl.value.trim();
+  const endDateDay = endDateDayEl.value.trim();
+  const endDateYear = endDateYearEl.value.trim();
+  const startTimeHour = startTimeHourEl.value.trim();
+  const startTimeMinutes = startTimeMinutesEl.value.trim();
+  const endTimeHour = endTimeHourEl.value.trim();
+  const endTimeMinutes = endTimeMinutesEl.value.trim();
+  const title = eventTitleEl.value.trim();
+  const url = checkForNull(urlEl);
 
-    const startDateMonth = startDateMonthEl.value.trim();
-    const startDateDay = startDateDayEl.value.trim();
-    const startDateYear = startDateYearEl.value.trim();
-    const endDateMonth = endDateMonthEl.value.trim();
-    const endDateDay = endDateDayEl.value.trim();
-    const endDateYear = endDateYearEl.value.trim();
-    const startTimeHour = startTimeHourEl.value.trim();
-    const startTimeMinutes = startTimeMinutesEl.value.trim();
-    const endTimeHour = endTimeHourEl.value.trim();
-    const endTimeMinutes = endTimeMinutesEl.value.trim();
-    const title = eventTitleEl.value.trim();
-    const url = checkForNull(urlEl);
+  if (startAmPmEl === 1 && startTimeHourEl === '12') {
+    startTimeHour = '12';
+  } else if (startAmPmEl === 1) {
+    startTimeHour = toString(parseInt(startTimeHour) + 12);
+  }
 
+  if ((endAmPmEl === 1) & (startTimeHourEl === '12')) {
+    endTimeHour = '12';
+  } else if (endAmPmEl === 1) {
+    endTimeHour = toString(parseInt(endTimeHour) + 12);
+  }
 
-    if (startAmPmEl === 1 && startTimeHourEl === '12') {
-        startTimeHour = '12'
-    } else if (startAmPmEl === 1) {
-        startTimeHour = toString(parseInt(startTimeHour) + 12)
-    }
+  const start =
+    startDateYear +
+    '-' +
+    startDateMonth +
+    '-' +
+    startDateDay +
+    'T' +
+    startTimeHour +
+    ':' +
+    startTimeMinutes +
+    ':00+00:00';
+  const end =
+    endDateYear +
+    '-' +
+    endDateMonth +
+    '-' +
+    endDateDay +
+    'T' +
+    endTimeHour +
+    ':' +
+    endTimeMinutes +
+    ':00+00:00';
 
-    if (endAmPmEl === 1 & startTimeHourEl === '12') {
-        endTimeHour = '12'
-    } else if (endAmPmEl === 1) {
-        endTimeHour = toString(parseInt(endTimeHour) + 12)
-    }
+  const updatedEventsBody = {
+    job_id,
+    start,
+    end,
+    title,
+    url,
+  };
 
-    const start = startDateYear + '-' + startDateMonth + '-' + startDateDay + 'T' + startTimeHour + ':' + startTimeMinutes + ':00+00:00'
-    const end = endDateYear + '-' + endDateMonth + '-' + endDateDay + 'T' + endTimeHour + ':' + endTimeMinutes + ':00+00:00'
+  //POST updated event
+  const updatedEventsData = await fetch('/api/events', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(updatedEventsBody),
+  });
 
-    const updatedEventsBody = {
-        start,
-        end,
-        title,
-        url,
-    };
-
-    //POST updated event
-    const updatedEventsData = await fetch('/api/events', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(updatedEventsBody),
-    });
-
-    //Check if valid POST
-    if (updatedEventsData.ok) {
-        // location.reload();
-        return;
-    } else {
-        window.alert('Please enter information correctly in required fields')
-    }
-
-    //Check for user input, return null if no input
-    function checkForNull(inputEl) {
-        if (inputEl.value.trim()) {
-            return inputEl.value.trim();
-        } else {
-            return null;
-        }
-    }
+  //Check if valid POST
+  if (updatedEventsData.ok) {
+    document.location.replace('/calendar');
+  } else {
+    window.alert('Please enter information correctly in required fields');
+  }
 }
 
+//Check for user input, return null if no input
+function checkForNull(inputEl) {
+  if (inputEl.value.trim()) {
+    return inputEl.value.trim();
+  } else {
+    return null;
+  }
+}
 
+// GET events
 async function fetchEvents() {
-    try {
-        const response = await fetch('/api/events/', {
-            method: 'GET',
-            credentials: 'same-origin'
-        });
-        const eventsData = await response.json();
-        generateCalendar(eventsData);
-        return eventsData;
-    } catch (err) {
-        console.error(err);
-    }
+  const eventsData = await fetch('/api/events/');
+
+  generateCalendar(eventsData);
 }
 
+// Render calendar to page
 function generateCalendar(eventsData) {
-    var calendarEl = document.getElementById('calendar');
-    var calendar = new FullCalendar.Calendar(calendarEl, {
-        timeZone: 'UTC',
-        themeSystem: 'bootstrap',
-        headerToolbar: {
-            left: 'prev,next today',
-            center: 'title',
-            right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
-        },
-        weekNumbers: true,
-        dayMaxEvents: true, // allow "more" link when too many events
-        events: eventsData
-    });
-    calendar.render();
-};
+  var calendarEl = document.getElementById('calendar');
+  var calendar = new FullCalendar.Calendar(calendarEl, {
+    timeZone: 'UTC',
+    themeSystem: 'bootstrap',
+    headerToolbar: {
+      left: 'prev,next today',
+      center: 'title',
+      right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth',
+    },
+    weekNumbers: true,
+    dayMaxEvents: true, // allow "more" link when too many events
+    events: eventsData,
+  });
+  calendar.render();
+}
 
-fetchEvents();
 init();
