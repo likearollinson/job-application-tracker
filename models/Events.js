@@ -26,13 +26,6 @@ Events.init(
     url: {
       type: DataTypes.STRING,
     },
-    user_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'user',
-        key: 'id',
-      },
-    },
     job_id: {
       type: DataTypes.INTEGER,
       references: {
