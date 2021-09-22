@@ -47,4 +47,13 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+router.get('/calendar', (req, res) => {
+  // If a session exists, redirect the request to the calendar
+  if (req.session.logged_in) {
+    res.render('calendar');
+    return;
+  }
+  res.redirect('/login');
+});
+
 module.exports = router;
