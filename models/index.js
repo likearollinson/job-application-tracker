@@ -17,6 +17,7 @@ Events.belongsTo(User, {
 
 JobPost.hasMany(Events, {
   foreignkey: 'job_id',
+  onDelete: 'CASCADE',
 });
 
 module.exports = { User, JobPost, Events };
