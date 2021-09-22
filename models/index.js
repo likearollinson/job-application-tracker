@@ -7,12 +7,13 @@ User.hasMany(JobPost, {
   onDelete: 'CASCADE',
 });
 
-JobPost.belongsTo(User, {
+User.hasMany(Events, {
   foreignKey: 'user_id',
+  onDelete: 'Cascade',
 });
 
-Events.belongsTo(User, {
-  foreignkey: 'user_id',
+JobPost.belongsTo(User, {
+  foreignKey: 'user_id',
 });
 
 JobPost.hasMany(Events, {

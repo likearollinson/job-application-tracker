@@ -6,7 +6,6 @@ router.get('/', async (req, res) => {
     const eventsData = await Events.findAll({
       where: {
         user_id: req.session.user_id,
-        job_id: req.session.job_id,
       },
     });
     res.status(200).json(eventsData);
@@ -19,8 +18,7 @@ router.post('/', async (req, res) => {
   try {
     if (req.body.start && req.body.end && req.body.title) {
       const body = req.body;
-      // body.user_id = req.session.user_id;
-
+      body.user_id = req.session.user_id;
       const newEvent = await Events.create(body);
 
       res.status(200).json(newEvent);
