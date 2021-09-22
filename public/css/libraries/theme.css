@@ -280,7 +280,7 @@ section {
 
 /*Page Objects*/
 .page-wrapper {
-  overflow: hidden;
+  overflow: auto;
   background: #e5e5e5;
   padding-bottom: 8vh;
 }
