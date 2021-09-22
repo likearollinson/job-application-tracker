@@ -16,24 +16,42 @@
           </style>
           <br>
           <h3>{{company_name}}</h3>
+
           <h5>{{title}}</h5>
+
           <p>{{location}}</p>
+
           <p>Date Added: {{format_date date_created}}</p> <br>
+
+          {{#if description}}
           <h4>Description</h4>
           <p>{{description}}</p> <br>
+          {{/if}}
+
+          {{#if salary_information}}
           <p>Estimated Salary: {{format_amount salary_information}}</p> <br>
+          {{/if}}
+
+          {{#if contact_information}}
           <h4>Contact Information</h4>
           <p>{{contact_information}}</p> <br>
-          <p>Job Url:</p>
-          <p> {{link}} </p> <br>
+          {{/if}}
+
+          {{#if link}}
+          <a href={{link}}>Job Post URL</a>
+          <br>
+          {{/if}}
+
+          {{#if additional_comments}}
           <h4>Additional Comments</h4>
           <p>{{additional_comments}}</p>
+          {{/if}}
+
           <br><span
             class="badge badge-pill badge-{{getApplicationStatusColor application_status}}">{{application_status}}</span>
           <br> <br>
           <button class="au-btn au-btn--block au-btn--green m-b-20" data-toggle="modal" data-target="#editJobModal"
             data-placement="top">Edit</button>
-          <a href="{{link}}" target="_blank"><button class="btn btn-secondary btn-lg btn-block">Job Page</button></a>
         </div>
       </div>
     </div>

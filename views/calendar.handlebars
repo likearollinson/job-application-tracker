@@ -30,87 +30,55 @@
                 {{/each}}
               </select>
             </div>
-            <!-- Date/Time -->
+
+            <!-- Event Title -->
             <div class="form-group">
-              <label for="start-date-month" class=" form-control-label">Start Date (Month) <span
+              <label for="title" class=" form-control-label">Title <span style="color: red;">*</span></label>
+              <input type="text" id="title" placeholder="Enter a title for this event" class="form-control">
+            </div>
+
+            <!-- Start -->
+            <div class="form-group">
+              <label for="start-date-month" class=" form-control-label">Start Date <span
                   style="color: red;">*</span></label>
               <input type="text" id="start-date-month" placeholder="Enter Month (MM)" class="form-control">
-            </div>
-            <div class="form-group">
-              <label for="start-date" class=" form-control-label">Start Date (Day) <span
-                  style="color: red;">*</span></label>
               <input type="text" id="start-date-day" placeholder="Enter day (DD)" class="form-control">
-            </div>
-            <div class="form-group">
-              <label for="start-date-year" class=" form-control-label"> Start Date (Year) <span
-                  style="color: red;">*</span></label>
               <input type="text" id="start-date-year" placeholder="Enter year (YYYY)" class="form-control">
+              <input type="text" id="start-time-hour" placeholder="Enter hour (HH)" class="form-control">
+              <input type="text" id="start-time-minutes" placeholder="Enter minutes (MM)" class="form-control">
+              <select name="select" id="select-start-am-pm" class="form-control">
+                <option value="0">AM</option>
+                <option value="1">PM</option>
+              </select>
             </div>
+
+            <!-- End -->
             <div class="form-group">
-              <label for="end-date-month" class=" form-control-label">End Date (Month) <span
+              <label for="end-date-month" class=" form-control-label">End Date <span
                   style="color: red;">*</span></label>
               <input type="text" id="end-date-month" placeholder="Enter Month (MM)" class="form-control">
-            </div>
-            <div class="form-group">
-              <label for="start-date" class=" form-control-label">Start Date (Day) <span
-                  style="color: red;">*</span></label>
               <input type="text" id="end-date-day" placeholder="Enter day (DD)" class="form-control">
-            </div>
-            <div class="form-group">
-              <label for="start-date-year" class=" form-control-label"> Start Date (Year) <span
-                  style="color: red;">*</span></label>
               <input type="text" id="end-date-year" placeholder="Enter year (YYYY)" class="form-control">
+              <input type="text" id="end-time-hour" placeholder="Enter hour (HH)" class="form-control">
+              <input type="text" id="end-time-minutes" placeholder="Enter minutes (MM)" class="form-control">
+              <select name="select" id="select-end-am-pm" class="form-control">
+                <option value="0">AM</option>
+                <option value="1">PM</option>
+              </select>
             </div>
+
+            <!-- URL -->
             <div class="form-group">
-              <label for="start-time-hour" class=" form-control-label"> Start Time (Hour) <span
-                  style="color: red;">*</span></label>
-              <input type="text" id="start-time-hour" placeholder="Enter hour (HH)" class="form-control">
+              <label for="url" class="form-control-label">URL</label>
+              <input type="text" id="url" placeholder="Enter URL (optional)" class="form-control">
             </div>
-            <label for="start-time-minutes" class=" form-control-label"> Start Time (Minutes) <span
-                style="color: red;">*</span></label>
-            <input type="text" id="start-time-minutes" placeholder="Enter minutes (MM)" class="form-control">
+
+            <button id="add-event-button" type="button" class="btn btn-primary">Add Event</button>
+
           </div>
-          <div class="form-group">
-            <label for="start-am-pm" class=" form-control-label">Start Time (AM or PM) <span
-                style="color: red;">*</span></label>
-            <select name="select" id="select-start-am-pm" class="form-control">
-              <option value="0">AM</option>
-              <option value="1">PM</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="end-time-hour" class=" form-control-label"> End Time (Hour) <span
-                style="color: red;">*</span></label>
-            <input type="text" id="end-time-hour" placeholder="Enter hour (HH)" class="form-control">
-          </div>
-          <label for="end-time-minutes" class=" form-control-label"> End Time (Minutes) <span
-              style="color: red;">*</span></label>
-          <input type="text" id="end-time-minutes" placeholder="Enter minutes (MM)" class="form-control">
-        </div>
-        <div class="form-group">
-          <label for="end-am-pm" class=" form-control-label">End Time (AM or PM) <span
-              style="color: red;">*</span></label>
-          <select name="select" id="select-end-am-pm" class="form-control">
-            <option value="0">AM</option>
-            <option value="1">PM</option>
-          </select>
-        </div>
-        <!-- Event Title -->
-        <div class="form-group">
-          <label for="title" class=" form-control-label">Title <span style="color: red;">*</span></label>
-          <input type="text" id="title" placeholder="Enter a title for this event" class="form-control">
-        </div>
-        <!-- URL -->
-        <div class="form-group">
-          <label for="url" class="form-control-label">URL</label>
-          <input type="text" id="url" placeholder="Enter URL if Necessary" class="form-control">
         </div>
       </div>
     </div>
-  </div>
-  <div class="modal-footer">
-    <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button> -->
-    <button id="add-event-button" type="button" class="btn btn-primary">Add Event</button>
   </div>
 </div>
 
