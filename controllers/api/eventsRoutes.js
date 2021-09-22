@@ -14,6 +14,21 @@ router.get('/', async (req, res) => {
   }
 });
 
+router.get('/job/:id', async (req, res) => {
+  try {
+    const eventsData = await Events.findAll({
+      where: {
+        user_id: req.session.user_id,
+        job_id: req.params.id,
+      },
+    });
+
+    res.status(200).json(eventsData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 router.post('/', async (req, res) => {
   try {
     if (req.body.start && req.body.end && req.body.title) {
@@ -23,10 +38,10 @@ router.post('/', async (req, res) => {
 
       res.status(200).json(newEvent);
     } else {
-      res.status(400).json({ message: req.body });
+      res.status(400).json({ message: 'Bad request.' });
     }
   } catch (err) {
-    res.status(400).json(err);
+    res.status(500).json(err);
   }
 });
 

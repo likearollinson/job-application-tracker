@@ -136,7 +136,7 @@ function generateCalendar(eventsData) {
       center: 'title',
       right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth',
     },
-    weekNumbers: true,
+    weekNumbers: false,
     dayMaxEvents: true, // allow "more" link when too many events
     events: eventsData,
   });
