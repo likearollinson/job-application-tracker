@@ -4,16 +4,19 @@ const Events = require('./Events');
 
 User.hasMany(JobPost, {
   foreignKey: 'user_id',
-  onDelete: 'CASCADE'
+  onDelete: 'CASCADE',
 });
 
 JobPost.belongsTo(User, {
-  foreignKey: 'user_id'
+  foreignKey: 'user_id',
 });
 
 Events.belongsTo(User, {
-  foreignkey: 'user_id'
-})
+  foreignkey: 'user_id',
+});
 
+JobPost.hasMany(Events, {
+  foreignkey: 'job_id',
+});
 
 module.exports = { User, JobPost, Events };
