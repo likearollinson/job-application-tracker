@@ -36,27 +36,26 @@ async function handleAddEvent(event) {
   const startDateMonth = startDateMonthEl.value.trim();
   const startDateDay = startDateDayEl.value.trim();
   const startDateYear = startDateYearEl.value.trim();
-  const startTimeHour = startTimeHourEl.value.trim();
+  let startTimeHour = startTimeHourEl.value.trim();
   const startTimeMinutes = startTimeMinutesEl.value.trim();
-  
+  const startAmPm = startAmPmEl.options[startAmPmEl.selectedIndex].text;
+
   const endDateMonth = endDateMonthEl.value.trim();
   const endDateDay = endDateDayEl.value.trim();
   const endDateYear = endDateYearEl.value.trim();
-  const endTimeHour = endTimeHourEl.value.trim();
+  let endTimeHour = endTimeHourEl.value.trim();
   const endTimeMinutes = endTimeMinutesEl.value.trim();
-  
+  const endAmPm = endAmPmEl.options[endAmPmEl.selectedIndex].text;
+
   const url = checkForNull(urlEl);
 
-  if (startAmPmEl === 1 && startTimeHourEl === '12') {
-    startTimeHour = '12';
-  } else if (startAmPmEl === 1) {
-    startTimeHour = toString(parseInt(startTimeHour) + 12);
+  // Convert hours into military time
+  if (startAmPm === 'PM') {
+    startTimeHour = parseInt(startTimeHour) + 12;
   }
 
-  if ((endAmPmEl === 1) & (startTimeHourEl === '12')) {
-    endTimeHour = '12';
-  } else if (endAmPmEl === 1) {
-    endTimeHour = toString(parseInt(endTimeHour) + 12);
+  if (endAmPm === 'PM') {
+    endTimeHour = parseInt(endTimeHour) + 12;
   }
 
   const start =
