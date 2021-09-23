@@ -131,8 +131,16 @@ function generateCalendar(eventsData) {
   var calendar = new FullCalendar.Calendar(calendarEl, {
     timeZone: 'UTC',
     themeSystem: 'bootstrap',
+    customButtons: {
+      AddEventCal: {
+        text: "Add Event",
+        click: function(){
+          document.getElementById("addEventCal").click();
+        }
+      }
+    },
     headerToolbar: {
-      left: 'prev,next today',
+      left: 'prev,next today AddEventCal',
       center: 'title',
       right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth',
     },
