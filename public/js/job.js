@@ -93,7 +93,7 @@ function generateCalendar(eventsData) {
       right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth',
     },
     weekNumbers: false,
-    dayMaxEvents: true, // allow "more" link when too many events
+    dayMaxEvents: false, // allow "more" link when too many events
     events: eventsData,
   });
   calendar.render();
