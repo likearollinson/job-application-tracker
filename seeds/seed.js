@@ -16,14 +16,12 @@ const seedDatabase = async () => {
   for (const job of jobData) {
     await JobPost.create({
       ...job,
-      user_id: users[Math.floor(Math.random() * users.length)].id,
     });
   }
 
   for (const event of eventsData) {
     await Events.create({
       ...event,
-      user_id: users[Math.floor(Math.random() * users.length)].id,
     });
   }
 
