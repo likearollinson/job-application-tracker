@@ -1,0 +1,19 @@
+.btn-primary {
+    color: white;
+    border-color: #008080;
+    background-color: #66b2b2;
+}
+
+.fc-toolbar-title {
+    color: black !important;
+}
+
+.btn-primary.disabled, .btn-primary:disabled {
+    border-color: #66b2b2!important;
+    background-color: #2ca5a5 !important;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle {
+    border-color: #66b2b2!important;
+    background-color: #008080 !important;
+}
