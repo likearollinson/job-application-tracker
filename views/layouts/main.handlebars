@@ -10,7 +10,7 @@
   <meta name="keywords" content="au theme template">
 
   <!-- Title Page Information-->
-  <title>AppliTrack</title>
+  <title>AppliTrak</title>
 
   <!--    CSS Dependencies-->
 
@@ -52,7 +52,7 @@
       <header class="header-desktop2">
         <div class="section__content section__content--p30">
           <div class="container-fluid">
-            <div class="header-wrap">
+            <div class="header-wrap" role="navigation">
               <style>
                 h2 {
                   color: white
@@ -60,10 +60,24 @@
 
                 ;
               </style>
-              <h2 id="applitrak"><a href="/" style="color: white;">AppliTrack</a></h2>
+              <h2 id="applitrak"> AppliTrak </h2>
+              <!-- Conditionally render login or logout links -->
+              {{#if logged_in}}
+              <ul class="nav justify-content-end">
+              <li class="nav-item">
+                <a class="nav-link logout" href="/login">Logout</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/calendar">Calendar</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/">Dashboard</a>
+              </li>
+            </ul>
+             {{/if}}
               <!--            Hamburger Menu Start-->
               <!--                            hamburger icon-->
-              <div class="header-button-item mr-0 js-sidebar-btn">
+              {{!-- <div class="header-button-item mr-0 js-sidebar-btn">
                 <i class="zmdi zmdi-menu"></i>
               </div>
 
@@ -88,7 +102,7 @@
                       <i class="fas fa-home"></i>Dashboard</a>
                   </div>
                 </div>
-              </div>
+              </div> --}}
               {{!-- {{/if}} --}}
             </div>
           </div>

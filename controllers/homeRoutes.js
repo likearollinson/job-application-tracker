@@ -25,18 +25,28 @@ router.get('/', withAuth, async (req, res) => {
 });
 
 // Render job.handlebars
-router.get('/jobPost/:id', withAuth, async (req, res) => {
+router.get('/jobPost/:id', async (req, res) => {
   try {
-    const jobData = await JobPost.findByPk(req.params.id);
+    const jobData = await JobPost.findByPk(req.params.id, {
+      where: {
+        user_id: req.session.user_id,
+      },
+    });
 
     const job = jobData.get({ plain: true });
+    if (req.session.logged_in) {
+      res.render('job', {
+        ...job,
+        logged_in: req.session.logged_in,
+      });
+      return;
+    }
 
-    res.render('job', job);
+    res.redirect('/login');
   } catch (err) {
     res.status(500).json(err);
   }
 });
-
 router.get('/login', (req, res) => {
   // If a session exists, redirect the request to the homepage
   if (req.session.logged_in) {
@@ -47,7 +57,7 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-router.get('/calendar', async (req, res) => {
+router.get('/calendar', withAuth, async (req, res) => {
   try {
     // Find all jobs
     const jobsData = await JobPost.findAll({
@@ -60,7 +70,10 @@ router.get('/calendar', async (req, res) => {
 
     // If a session exists, redirect the request to the calendar
     if (req.session.logged_in) {
-      res.render('calendar', {jobs});
+      res.render('calendar', {
+        ...jobs,
+        logged_in: req.session.logged_in,
+      });
       return;
     }
 
