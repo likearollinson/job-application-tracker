@@ -30,8 +30,14 @@ router.get('/jobPost/:id', withAuth, async (req, res) => {
     const jobData = await JobPost.findByPk(req.params.id);
 
     const job = jobData.get({ plain: true });
-
-    res.render('job', job);
+    if (req.session.logged_in) {
+      res.render('job', {
+        ...job,
+        logged_in: req.session.logged_in,
+      });
+      return;
+    }
+    res.redirect('/login');
   } catch (err) {
     res.status(500).json(err);
   }
@@ -60,10 +66,12 @@ router.get('/calendar', withAuth, async (req, res) => {
 
     // If a session exists, redirect the request to the calendar
     if (req.session.logged_in) {
-      res.render('calendar', { jobs });
+      res.render('calendar', {
+        ...jobs,
+        logged_in: req.session.logged_in,
+      });
       return;
     }
-
     res.redirect('/login');
   } catch (err) {
     res.status(500).json(err);
