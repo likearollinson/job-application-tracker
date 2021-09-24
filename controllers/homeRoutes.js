@@ -47,7 +47,7 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-router.get('/calendar', async (req, res) => {
+router.get('/calendar', withAuth, async (req, res) => {
   try {
     // Find all jobs
     const jobsData = await JobPost.findAll({
@@ -60,7 +60,7 @@ router.get('/calendar', async (req, res) => {
 
     // If a session exists, redirect the request to the calendar
     if (req.session.logged_in) {
-      res.render('calendar', {jobs});
+      res.render('calendar', { jobs });
       return;
     }
 

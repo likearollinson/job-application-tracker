@@ -87,10 +87,11 @@ function generateCalendar(eventsData) {
   var calendar = new FullCalendar.Calendar(calendarEl, {
     timeZone: 'UTC',
     themeSystem: 'bootstrap',
+    initialView: 'listWeek',
     headerToolbar: {
       left: 'prev,next today',
-      center: 'title',
-      right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth',
+      right: 'title',
+      //      right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth',
     },
     weekNumbers: false,
     dayMaxEvents: false, // allow "more" link when too many events
