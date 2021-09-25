@@ -1,8 +1,8 @@
-# Welcome to AppliTrack! Where you can keep track and stay orginazed in your job hunt.
+# Welcome to AppliTrak! Where you can keep track and stay orginazed in your job hunt.
 
 ## Link to Deployed Site
 
-[AppliTrack](link.com)
+[AppliTrak](link.com)
 
 ## Table of Contents
   * [Motivation and Technologies](#motivation)
@@ -27,7 +27,7 @@ As a team, we aimed to create a web application where users who are on the job h
 
 ## Functionality
 
-![AppliTrack-DEMO](gif)
+![AppliTrak-DEMO](gif)
 #### The demo shows the main functions of AppliTrack job tracker:
 * The landing page introduces the site, and has sign in and register as new user cards for the user to login
 * The user is then led to a dashboard where the jobs they are interested in will be presented 
