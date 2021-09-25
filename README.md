@@ -1,14 +1,14 @@
-# Welcome to AppliTrack! Where you can keep track and stay orginazed in your job hunt.
+# Welcome to AppliTrak! Where you can keep track and stay organized in your job hunt.
 
 ## Link to Deployed Site
 
-[AppliTrack](link.com)
+[AppliTrak](https://immense-eyrie-11789.herokuapp.com/login)
 
 ## Table of Contents
   * [Motivation and Technologies](#motivation)
   * [Functionality](#functionality)
   * [Challenges](#challenges)
-  * [Usage](#usage)
+  * [Future Development](#futuredevelopment)
 
 ## Motivation
 
@@ -27,20 +27,24 @@ As a team, we aimed to create a web application where users who are on the job h
 
 ## Functionality
 
-![AppliTrack-DEMO](gif)
-#### The demo shows the main functions of AppliTrack job tracker:
 * The landing page introduces the site, and has sign in and register as new user cards for the user to login
 * The user is then led to a dashboard where the jobs they are interested in will be presented 
-* The user can add a job with ....information  
-* The user must enter an ingredient, but can select a preferred diet type and cooktime from dropdown menus.
+* The user can add a job with information such as job title, job description, and status.
+* The job will be added to the dashboard where it can be deleted or can be clicked on to view it on it's on page
 * Using the navbar, the user can navigate to a calendar
 * The calendar will allow the user to add events such as upcoming interviews 
 
 ## Challenges
-???
 
-## Usage
-* ??? 
+* Finding a calendar library that would function in vanilla JavaScript
+* Routes and authentication
+* Navigation links (displaying for logged in users)
+* Merge conflicts
 
 ## Future Development
-* ???
+* Adding a put and delete route for the events
+* Adding a modal when you click on an event showing detailed information
+* Add a date picker
+* More polished UI/mobile friendly
+* Calendar on Dashboard
+* Introduction page for the site
