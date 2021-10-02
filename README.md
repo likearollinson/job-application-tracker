@@ -51,7 +51,7 @@ As a team, we aimed to create a web application where users who are on the job h
 
 ## Contributors
 
-*[Brad Rollinson](https://github.com/likearollinson)
-*[Lauren Goss](https://github.com/laurenlgoss)
-*[Wongani Jere](https://github.com/JayPushCode)
-*[Aubri Henley](https://github.com/aubrihenley)
+* [Brad Rollinson](https://github.com/likearollinson)
+* [Lauren Goss](https://github.com/laurenlgoss)
+* [Wongani Jere](https://github.com/JayPushCode)
+* [Aubri Henley](https://github.com/aubrihenley)
