@@ -48,3 +48,10 @@ As a team, we aimed to create a web application where users who are on the job h
 * More polished UI/mobile friendly
 * Calendar on Dashboard
 * Introduction page for the site
+
+## Contributors
+
+*[Brad Rollinson](https://github.com/likearollinson)
+*[Lauren Goss](https://github.com/laurenlgoss)
+*[Wongani Jere](https://github.com/JayPushCode)
+*[Aubri Henley](https://github.com/aubrihenley)
